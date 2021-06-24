@@ -11,5 +11,6 @@ galaxy_info:
       versions:
       - bionic
   galaxy_tags:
+    - emq
     - emqx
     - mqtt
