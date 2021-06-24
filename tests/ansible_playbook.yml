@@ -1,0 +1,40 @@
+---
+# This playbook deploys the whole application stack in this site.  
+- name: apply common configuration to all nodes
+  hosts: all
+  user: vagrant
+  tasks:
+    - name: Resolve a nodes
+      lineinfile:  
+        path: '/etc/hosts'
+        regexp: "^10.0.0.1{{ item }}.*"
+        line: 10.0.0.1{{ item }}   node{{ item }} node{{ item }}.local
+        backup: yes
+      with_items:
+          - 1
+          - 2
+          - 3
+
+- name: apply common configuration to all nodes
+  hosts: emq
+  user: vagrant
+  roles:
+
+    - role: emq
+      tags: ['emq']
+
+
+
+- hosts: monitoring
+  become: yes
+  user: vagrant
+  roles:
+        - { role: cloudalchemy.ansible-pushgateway, tags: ['pushgateway'] }
+        - { role: cloudalchemy.prometheus, tags: ['prometheus'] }
+        - { role: cloudalchemy.grafana , tags: ['grafana'] }
+
+  tasks:
+        - apt: name={{ item }}
+          with_items: [vim, jq]
+
+

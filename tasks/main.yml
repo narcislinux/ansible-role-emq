@@ -1,0 +1,7 @@
+---
+- include: install.yml
+  tags:
+    - emq_install
+- include: config.yml
+  tags:
+    - emq_config

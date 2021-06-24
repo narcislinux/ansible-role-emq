@@ -1,0 +1,12 @@
+# {{ ansible_managed }}
+
+##--------------------------------------------------------------------
+## emqx_prometheus for EMQ X
+##--------------------------------------------------------------------
+#
+{% if emq_monitoring[item].prometheus_push_gateway_server is defined %}
+prometheus.push.gateway.server={{ emq_monitoring[item].prometheus_push_gateway_server }}
+{% endif %}
+{% if emq_monitoring[item].prometheus_interval is defined %}
+prometheus.interval={{ emq_monitoring[item].prometheus_interval }}
+{% endif %}

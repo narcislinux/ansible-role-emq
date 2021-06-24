@@ -1,0 +1,9 @@
+# {{ ansible_managed }}
+
+##--------------------------------------------------------------------
+## ClientId Authentication Plugin
+##--------------------------------------------------------------------
+
+{% if emq_plugin_auth_clientid[item].auth_client_password_hash is defined %}
+auth.client.password_hash={{ emq_plugin_auth_clientid[item].auth_client_password_hash }}
+{% endif -%}

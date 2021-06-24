@@ -1,0 +1,41 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+BOX_IMAGE = "bento/ubuntu-18.04"
+NODE_COUNT = 3
+ANSIBLE_ROLES_PATH = ""
+
+Vagrant.configure("2") do |config|
+  config.vm.provider "virtualbox" do |vb|
+     vb.gui = false
+     vb.memory = "1024"
+  end
+  (1..NODE_COUNT).each do |i|
+    config.vm.define "node#{i}" do |subconfig|
+      subconfig.vm.box = BOX_IMAGE
+      subconfig.vm.hostname = "node#{i}"
+      subconfig.vm.network :private_network, ip: "10.0.0.#{i + 10}"
+
+    end
+
+   config.vm.define "node-monitoring" do |subconfig|
+      subconfig.vm.box = BOX_IMAGE
+      subconfig.vm.hostname = "node-monitoring"
+      subconfig.vm.network :private_network, ip: "10.0.0.50"
+   end
+
+  end
+
+
+#  config.vm.provision "shell", inline: "apt install --yes git python3-pip"
+config.vm.provision "ansible" do |ansible|
+      ansible.become = true
+      ansible.verbose = "v"        
+      ansible.inventory_path = "./inventory.yaml"
+      ansible.extra_vars = "ansible_extra_vars.yml"
+#       ansible.vault_password_file="~/.vault_pass.txt"
+      ansible.playbook = "./ansible_playbook.yml"
+      ansible.galaxy_roles_path = ANSIBLE_ROLES_PATH 
+end
+end
+
