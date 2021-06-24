@@ -1,0 +1,75 @@
+# {{ ansible_managed }}
+
+##--------------------------------------------------------------------
+## EMQ X Dashboard
+##--------------------------------------------------------------------
+#
+{% if emq_plugin_dashboard[item].dashboard_default_user_login is defined %}
+dashboard.default_user.login={{ emq_plugin_dashboard[item].dashboard_default_user_login }}
+{% endif %}
+{% if emq_plugin_dashboard[item].dashboard_default_user_password is defined %}
+dashboard.default_user.password={{ emq_plugin_dashboard[item].dashboard_default_user_password }}
+{% endif %}
+{% if emq_plugin_dashboard[item].dashboard_listener_http is defined %}
+dashboard.listener.http={{ emq_plugin_dashboard[item].dashboard_listener_http }}
+{% endif %}
+{% if emq_plugin_dashboard[item].dashboard_listener_http_acceptors is defined %}
+dashboard.listener.http.acceptors={{ emq_plugin_dashboard[item].dashboard_listener_http_acceptors }}
+{% endif %}
+{% if emq_plugin_dashboard[item].dashboard_listener_http_max_clients is defined %}
+dashboard.listener.http.max_clients={{ emq_plugin_dashboard[item].dashboard_listener_http_max_clients }}
+{% endif %}
+{% if emq_plugin_dashboard[item].dashboard_listener_http_inet6 is defined %}
+dashboard.listener.http.inet6={{ emq_plugin_dashboard[item].dashboard_listener_http_inet6 }}
+{% endif %}
+{% if emq_plugin_dashboard[item].dashboard_listener_http_ipv6_v6only is defined %}
+dashboard.listener.http.ipv6_v6only={{ emq_plugin_dashboard[item].dashboard_listener_http_ipv6_v6only }}
+{% endif %}
+{% if emq_plugin_dashboard[item].dashboard_listener_https is defined %}
+dashboard.listener.https={{ emq_plugin_dashboard[item].dashboard_listener_https }}
+{% endif %}
+{% if emq_plugin_dashboard[item].dashboard_listener_https_acceptors is defined %}
+dashboard.listener.https.acceptors={{ emq_plugin_dashboard[item].dashboard_listener_https_acceptors }}
+{% endif %}
+{% if emq_plugin_dashboard[item].dashboard_listener_https_max_clients is defined %}
+dashboard.listener.https.max_clients={{ emq_plugin_dashboard[item].dashboard_listener_https_max_clients }}
+{% endif %}
+{% if emq_plugin_dashboard[item].dashboard_listener_https_inet6 is defined %}
+dashboard.listener.https.inet6={{ emq_plugin_dashboard[item].dashboard_listener_https_inet6 }}
+{% endif %}
+{% if emq_plugin_dashboard[item].dashboard_listener_https_ipv6_v6only is defined %}
+dashboard.listener.https.ipv6_v6only={{ emq_plugin_dashboard[item].dashboard_listener_https_ipv6_v6only }}
+{% endif %}
+{% if emq_plugin_dashboard[item].dashboard_listener_https_keyfile is defined %}
+dashboard.listener.https.keyfile={{ emq_plugin_dashboard[item].dashboard_listener_https_keyfile }}
+{% endif %}
+{% if emq_plugin_dashboard[item].dashboard_listener_https_certfile is defined %}
+dashboard.listener.https.certfile={{ emq_plugin_dashboard[item].dashboard_listener_https_certfile }}
+{% endif %}
+{% if emq_plugin_dashboard[item].dashboard_listener_https_cacertfile is defined %}
+dashboard.listener.https.cacertfile={{ emq_plugin_dashboard[item].dashboard_listener_https_cacertfile }}
+{% endif %}
+{% if emq_plugin_dashboard[item].dashboard_listener_https_dhfile is defined %}
+dashboard.listener.https.dhfile={{ emq_plugin_dashboard[item].dashboard_listener_https_dhfile }}
+{% endif %}
+{% if emq_plugin_dashboard[item].dashboard_listener_https_verify is defined %}
+dashboard.listener.https.verify={{ emq_plugin_dashboard[item].dashboard_listener_https_verify }}
+{% endif %}
+{% if emq_plugin_dashboard[item].dashboard_listener_https_fail_if_no_peer_cert is defined %}
+dashboard.listener.https.fail_if_no_peer_cert={{ emq_plugin_dashboard[item].dashboard_listener_https_fail_if_no_peer_cert }}
+{% endif %}
+{% if emq_plugin_dashboard[item].dashboard_listener_https_tls_versions is defined %}
+dashboard.listener.https.tls_versions={{ emq_plugin_dashboard[item].dashboard_listener_https_tls_versions }}
+{% endif %}
+{% if emq_plugin_dashboard[item].dashboard_listener_https_ciphers is defined %}
+dashboard.listener.https.ciphers={{ emq_plugin_dashboard[item].dashboard_listener_https_ciphers }}
+{% endif %}
+{% if emq_plugin_dashboard[item].dashboard_listener_https_secure_renegotiate is defined %}
+dashboard.listener.https.secure_renegotiate={{ emq_plugin_dashboard[item].dashboard_listener_https_secure_renegotiate }}
+{% endif %}
+{% if emq_plugin_dashboard[item].dashboard_listener_https_reuse_sessions is defined %}
+dashboard.listener.https.reuse_sessions={{ emq_plugin_dashboard[item].dashboard_listener_https_reuse_sessions }}
+{% endif %}
+{% if emq_plugin_dashboard[item].dashboard_listener_https_honor_cipher_order is defined %}
+dashboard.listener.https.honor_cipher_order={{ emq_plugin_dashboard[item].dashboard_listener_https_honor_cipher_order }}
+{% endif %}

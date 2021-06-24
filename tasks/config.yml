@@ -1,0 +1,71 @@
+- name: EMQX | Config | create Emq config file
+  template:
+    src: "etc/emqx/emqx-conf.j2"
+    dest: "/etc/emqx/emqx.conf"
+    mode: 0644
+  with_items: "{{ emq_config | list }}"
+  when: emq_config is defined
+  notify:
+    - restart service
+  tags:
+    - config-file
+
+- name: EMQX | Plugin | ClientId Authentication Plugin
+  template:
+    src: "etc/emqx/plugins/emqx_auth_clientid-conf.j2"
+    dest: "/etc/emqx/plugins/emqx_auth_clientid.conf"
+    mode: 0644
+  with_items: "{{ emq_plugin_auth_clientid | list }}"
+  when: emq_plugin_auth_clientid is defined
+  notify:
+    - restart service
+  tags:
+    - config-plugin-auth-clientid
+
+- name: EMQX | Plugin | HTTP Auth/ACL Plugin
+  template:
+    src: "etc/emqx/plugins/emqx_auth_http-conf.j2"
+    dest: "/etc/emqx/plugins/emqx_auth_http.conf"
+    mode: 0644
+  with_items: "{{ emq_plugin_auth_http | list }}"
+  when: emq_plugin_auth_http is defined
+  notify:
+    - restart service
+  tags:
+    - config-plugin-auth-http
+
+- name: EMQX | Plugin | EMQ X Dashboard
+  template:
+    src: "etc/emqx/plugins/emqx_dashboard-conf.j2"
+    dest: "/etc/emqx/plugins/emqx_dashboard.conf"
+    mode: 0644
+  with_items: "{{ emq_plugin_dashboard | list }}"
+  when: emq_plugin_dashboard is defined
+  notify:
+    - restart service
+  tags:
+    - config-plugin-dashboard
+  
+- name: EMQX | Plugin | EMQ X Management Plugin
+  template:
+    src: "etc/emqx/plugins/emqx_management-conf.j2"
+    dest: "/etc/emqx/plugins/emqx_management.conf"
+    mode: 0644
+  with_items: "{{ emq_plugin_management | list }}"
+  when: emq_plugin_management is defined
+  notify:
+    - restart service
+  tags:
+    - config-plugin-management
+
+- name: EMQX | Plugin | EMQ X Prometheus
+  template:
+    src: "etc/emqx/plugins/emqx_prometheus-conf.j2"
+    dest: "/etc/emqx/plugins/emqx_prometheus.conf"
+    mode: 0644
+  with_items: "{{ emq_monitoring | list }}"
+  when: emq_monitoring is defined
+  notify:
+    - restart service
+  tags:
+    - config-plugin-prometheus

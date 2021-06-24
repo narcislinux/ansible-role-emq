@@ -1,0 +1,4 @@
+---
+# handlers file for daxin.emq
+- name: restart service
+  service: name=emqx enabled=yes state=restarted

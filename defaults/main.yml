@@ -1,0 +1,617 @@
+---
+# emq_key:
+#   repo: 
+#     url: https://repos.emqx.io/gpg.pub
+#     state: present
+
+# emq_proxy_env:
+#   http_proxy: ""
+#   https_proxy: ""
+
+# #  Emq has 3 type broker, emqx-ee broker (package="emqx-ee"), emqx-edge broker (package="emqx-edge") and emqx-ce broker (package="emqx").
+# emq_repo:
+#   emqx:
+#     url: "deb [arch=amd64] https://repos.emqx.io/emqx-ce/deb/ubuntu/  bionic stable "
+#     state: present
+#     filename: emqx
+
+# emq_package:
+#   dependency:
+#     name: "apt-transport-https ca-certificates curl gnupg-agent software-properties-common lsb-core"
+#     state: installed
+#     purge: no
+#     update_cache: yes
+#   emq:
+#     name: emqx  
+#     state: installed
+#     purge: no
+#     update_cache: yes
+
+# emq_monitoring:
+#   prometheus_push_gateway_server:  http://10_0_0_11:9091
+#   prometheus_interval:  15000
+
+# # EMQX config variables
+# emq_config:
+#   cluster_name: emqxcl
+#   cluster_proto_dist: inet_tcp
+#   cluster_discovery: manual
+#   cluster_autoheal: on
+#   cluster_autoclean: 5m
+#   cluster_static_seeds: emqx1@127.0.0.1,emqx2@127.0.0.1
+#   cluster_mcast_addr: 239.192.0.1
+#   cluster_mcast_ports: 4369,4370
+#   cluster_mcast_iface: 0.0.0.0
+#   cluster_mcast_ttl: 255
+#   cluster_mcast_loop: on
+#   cluster_dns_name: localhost
+#   cluster_dns_app: emqx
+#   cluster_etcd_server: http://127.0.0.1:2379
+#   cluster_etcd_prefix: emqxcl
+#   cluster_etcd_node_ttl: 1m
+#   cluster_etcd_ssl_keyfile: /etc/emqx/certs/client.key_pem
+#   cluster_etcd_ssl_certfile: /etc/emqx/certs/client.pem
+#   cluster_etcd_ssl_cacertfile: /etc/emqx/certs/ca.pem
+#   cluster_k8s_apiserver: http://10.110.111.204:8080
+#   cluster_k8s_service_name: emqx
+#   cluster_k8s_address_type: ip
+#   cluster_k8s_app_name: emqx
+#   cluster_k8s_suffix: pod.cluster.local
+#   cluster_k8s_namespace: default
+#   node_name: emqx@{{ inventory_hostname }}
+#   node_cookie: emqxsecretcookie
+#   node_data_dir: /var/lib/emqx
+#   node_heartbeat: on
+#   node_async_threads: 4
+#   node_process_limit: 2097152
+#   node_max_ports: 1048576
+#   node_dist_buffer_size: 8MB
+#   node_max_ets_tables: 262144
+#   node_global_gc_interval: 15m
+#   node_fullsweep_after: 1000
+#   node_crash_dump: /var/log/emqx/crash.dump
+#   node_ssl_dist_optfile: /etc/emqx/ssl_dist.conf
+#   node_dist_net_ticktime: 120
+#   node_dist_listen_min: 6369
+#   node_dist_listen_max: 6369
+#   rpc_mode: async
+#   rpc_async_batch_size: 256
+#   rpc_port_discovery: stateless
+#   rpc_tcp_server_port: 5369
+#   rpc_tcp_client_port: 5369
+#   rpc_tcp_client_num: 1
+#   rpc_connect_timeout: 5s
+#   rpc_send_timeout: 5s
+#   rpc_authentication_timeout: 5s
+#   rpc_call_receive_timeout: 15s
+#   rpc_socket_keepalive_idle: 900s
+#   rpc_socket_keepalive_interval: 75s
+#   rpc_socket_keepalive_count: 9
+#   rpc_socket_sndbuf: 1MB
+#   rpc_socket_recbuf: 1MB
+#   rpc_socket_buffer: 1MB
+#   log_to: both
+#   log_level: warning
+#   log_dir: /var/log/emqx
+#   log_file: emqx.log
+#   log_chars_limit: 8192
+#   log_rotation: on
+#   log_rotation_size: 10MB
+#   log_rotation_count: 5
+#   log_info_file : info.log
+#   log_error_file: error.log
+#   log_sync_mode_qlen: 100
+#   log_drop_mode_qlen: 3000
+#   log_flush_qlen: 8000
+#   log_overload_kill: on
+#   log_overload_kill_qlen: 20000
+#   log_overload_kill_mem_size: 30MB
+#   log_overload_kill_restart_after: 5s
+#   log_burst_limit: 20000, 1s
+#   allow_anonymous: true
+#   acl_nomatch: allow
+#   acl_file: /etc/emqx/acl.conf
+#   enable_acl_cache: on
+#   acl_cache_max_size: 32
+#   acl_cache_ttl: 1m
+#   acl_deny_action: ignore
+#   flapping_detect_policy: 30, 1m, 5m
+#   mqtt_max_packet_size: 1MB
+#   mqtt_max_clientid_len: 65535
+#   mqtt_max_topic_levels: 0
+#   mqtt_max_qos_allowed: 2
+#   mqtt_max_topic_alias: 65535
+#   mqtt_retain_available: true
+#   mqtt_wildcard_subscription: true
+#   mqtt_shared_subscription: true
+#   mqtt_ignore_loop_deliver: false
+#   mqtt_strict_mode: false
+#   mqtt_response_information: example
+#   zone_external_idle_timeout: 15s
+#   zone_external_enable_acl: on
+#   zone_external_enable_ban: on
+#   zone_external_enable_stats: on
+#   zone_external_acl_deny_action: ignore
+#   zone_external_force_gc_policy: 16000|16MB
+#   zone_external_force_shutdown_policy: 32000|32MB
+#   zone_external_max_packet_size: 64KB
+#   zone_external_max_clientid_len: 1024
+#   zone_external_max_topic_levels: 7
+#   zone_external_max_qos_allowed: 2
+#   zone_external_max_topic_alias: 65535
+#   zone_external_retain_available: true
+#   zone_external_wildcard_subscription: false
+#   zone_external_shared_subscription: false
+#   zone_external_server_keepalive: 0
+#   zone_external_keepalive_backoff: 0.75
+#   zone_external_max_subscriptions: 0
+#   zone_external_upgrade_qos: off
+#   zone_external_max_inflight: 32
+#   zone_external_retry_interval: 30s
+#   zone_external_max_awaiting_rel: 100
+#   zone_external_await_rel_timeout: 300s
+#   zone_external_session_expiry_interval: 2h
+#   zone_external_max_mqueue_len: 1000
+#   zone_external_mqueue_priorities: none
+#   zone_external_mqueue_default_priority: highest
+#   zone_external_mqueue_store_qos0: true
+#   zone_external_enable_flapping_detect: off
+#   zone_external_rate_limit_conn_messages_in: 100,10s
+#   zone_external_rate_limit_conn_bytes_in: 100KB,10s
+#   zone_external_quota_conn_messages_routing: 100,1s
+#   zone_external_quota_overall_messages_routing: 200000,1s
+#   zone_external_mountpoint: devicebound/
+#   zone_external_use_username_as_clientid: false
+#   zone_external_ignore_loop_deliver: false
+#   zone_external_strict_mode: false
+#   zone_external_response_information: example
+#   zone_internal_allow_anonymous: true
+#   zone_internal_enable_stats: on
+#   zone_internal_enable_acl: off
+#   zone_internal_acl_deny_action: ignore
+#   zone_internal_force_gc_policy: 128000|128MB
+#   zone_internal_wildcard_subscription: true
+#   zone_internal_shared_subscription: true
+#   zone_internal_max_subscriptions: 0
+#   zone_internal_max_inflight: 128
+#   zone_internal_max_awaiting_rel: 1000
+#   zone_internal_max_mqueue_len: 10000
+#   zone_internal_mqueue_store_qos0: true
+#   zone_internal_enable_flapping_detect: off
+#   zone_internal_force_shutdown_policy: 128000|128MB
+#   zone_internal_mountpoint: cloudbound/
+#   zone_internal_ignore_loop_deliver: false
+#   zone_internal_strict_mode: false
+#   zone_internal_response_information: example
+#   zone_internal_bypass_auth_plugins: true
+#   listener_tcp_external: 0.0.0.0:1883
+#   listener_tcp_external_acceptors: 8
+#   listener_tcp_external_max_connections: 1024000
+#   listener_tcp_external_max_conn_rate: 1000
+#   listener_tcp_external_active_n: 100
+#   listener_tcp_external_zone: external
+#   listener_tcp_external_access_1: allow all
+#   listener_tcp_external_proxy_protocol: on
+#   listener_tcp_external_proxy_protocol_timeout: 3s
+#   listener_tcp_external_peer_cert_as_username: cn
+#   listener_tcp_external_backlog: 1024
+#   listener_tcp_external_send_timeout: 15s
+#   listener_tcp_external_send_timeout_close: on
+#   listener_tcp_external_recbuf: 2KB
+#   listener_tcp_external_sndbuf: 2KB
+#   listener_tcp_external_buffer: 2KB
+#   listener_tcp_external_tune_buffer: off
+#   listener_tcp_external_nodelay: true
+#   listener_tcp_external_reuseaddr: true
+#   listener_tcp_internal: 127.0.0.1:11883
+#   listener_tcp_internal_acceptors: 4
+#   listener_tcp_internal_max_connections: 1024000
+#   listener_tcp_internal_max_conn_rate: 1000
+#   listener_tcp_internal_active_n: 1000
+#   listener_tcp_internal_zone: internal
+#   listener_tcp_internal_backlog: 512
+#   listener_tcp_internal_send_timeout: 5s
+#   listener_tcp_internal_send_timeout_close: on
+#   listener_tcp_internal_recbuf: 64KB
+#   listener_tcp_internal_sndbuf: 64KB
+#   listener_tcp_internal_buffer: 16KB
+#   listener_tcp_internal_tune_buffer: off
+#   listener_tcp_internal_nodelay: false
+#   listener_tcp_internal_reuseaddr: true
+#   listener_ssl_external: 8883
+#   listener_ssl_external_acceptors: 16
+#   listener_ssl_external_max_connections: 102400
+#   listener_ssl_external_max_conn_rate: 500
+#   listener_ssl_external_active_n: 100
+#   listener_ssl_external_zone: external
+#   listener_ssl_external_access_1: allow all
+#   listener_ssl_external_proxy_protocol: on
+#   listener_ssl_external_proxy_protocol_timeout: 3s
+#   listener_ssl_external_tls_versions: tlsv1.2,tlsv1.1,tlsv1
+#   listener_ssl_external_handshake_timeout: 15s
+#   listener_ssl_external_keyfile: /etc/emqx/certs/key.pem
+#   listener_ssl_external_certfile: /etc/emqx/certs/cert.pem
+#   listener_ssl_external_cacertfile: /etc/emqx/certs/cacert.pem
+#   listener_ssl_external_dhfile: /etc/emqx/certs/dh-params.pem
+#   listener_ssl_external_verify: verify_peer
+#   listener_ssl_external_fail_if_no_peer_cert: true
+#   listener_ssl_external_ciphers: ECDHE-ECDSA-AES256-GCM-SHA384,ECDHE-RSA-AES256-GCM-SHA384,ECDHE-ECDSA-AES256-SHA384,ECDHE-RSA-AES256-SHA384,ECDHE-ECDSA-DES-CBC3-SHA,ECDH-ECDSA-AES256-GCM-SHA384,ECDH-RSA-AES256-GCM-SHA384,ECDH-ECDSA-AES256-SHA384,ECDH-RSA-AES256-SHA384,DHE-DSS-AES256-GCM-SHA384,DHE-DSS-AES256-SHA256,AES256-GCM-SHA384,AES256-SHA256,ECDHE-ECDSA-AES128-GCM-SHA256,ECDHE-RSA-AES128-GCM-SHA256,ECDHE-ECDSA-AES128-SHA256,ECDHE-RSA-AES128-SHA256,ECDH-ECDSA-AES128-GCM-SHA256,ECDH-RSA-AES128-GCM-SHA256,ECDH-ECDSA-AES128-SHA256,ECDH-RSA-AES128-SHA256,DHE-DSS-AES128-GCM-SHA256,DHE-DSS-AES128-SHA256,AES128-GCM-SHA256,AES128-SHA256,ECDHE-ECDSA-AES256-SHA,ECDHE-RSA-AES256-SHA,DHE-DSS-AES256-SHA,ECDH-ECDSA-AES256-SHA,ECDH-RSA-AES256-SHA,AES256-SHA,ECDHE-ECDSA-AES128-SHA,ECDHE-RSA-AES128-SHA,DHE-DSS-AES128-SHA,ECDH-ECDSA-AES128-SHA,ECDH-RSA-AES128-SHA,AES128-SHA
+#   listener_ssl_external_psk_ciphers: PSK-AES128-CBC-SHA,PSK-AES256-CBC-SHA,PSK-3DES-EDE-CBC-SHA,PSK-RC4-SHA
+#   listener_ssl_external_secure_renegotiate: off
+#   listener_ssl_external_reuse_sessions: on
+#   listener_ssl_external_honor_cipher_order: on
+#   listener_ssl_external_peer_cert_as_username: cn
+#   listener_ssl_external_backlog: 1024
+#   listener_ssl_external_send_timeout: 15s
+#   listener_ssl_external_send_timeout_close: on
+#   listener_ssl_external_recbuf: 4KB
+#   listener_ssl_external_sndbuf: 4KB
+#   listener_ssl_external_buffer: 4KB
+#   listener_ssl_external_tune_buffer: off
+#   listener_ssl_external_nodelay: true
+#   listener_ssl_external_reuseaddr: true
+#   listener_ws_external: 8083
+#   listener_ws_external_mqtt_path: /mqtt
+#   listener_ws_external_acceptors: 4
+#   listener_ws_external_max_connections: 102400
+#   listener_ws_external_max_conn_rate: 1000
+#   listener_ws_external_active_n: 100
+#   listener_ws_external_zone: external
+#   listener_ws_external_access_1: allow all
+#   listener_ws_external_verify_protocol_header: on
+#   listener_ws_external_proxy_protocol: on
+#   listener_ws_external_proxy_protocol_timeout: 3s
+#   listener_ws_external_backlog: 1024
+#   listener_ws_external_send_timeout: 15s
+#   listener_ws_external_send_timeout_close: on
+#   listener_ws_external_recbuf: 2KB
+#   listener_ws_external_sndbuf: 2KB
+#   listener_ws_external_buffer: 2KB
+#   listener_ws_external_tune_buffer: off
+#   listener_ws_external_nodelay: true
+#   listener_ws_external_compress: true
+#   listener_ws_external_deflate_opts_level: default
+#   listener_ws_external_deflate_opts_mem_level: 8
+#   listener_ws_external_deflate_opts_strategy: default
+#   listener_ws_external_deflate_opts_server_context_takeover: takeover
+#   listener_ws_external_deflate_opts_client_context_takeover: takeover
+#   listener_ws_external_deflate_opts_server_max_window_bits: 15
+#   listener_ws_external_deflate_opts_client_max_window_bits: 15
+#   listener_ws_external_idle_timeout: 60s
+#   listener_ws_external_max_frame_size: 0
+#   listener_ws_external_mqtt_piggyback: multiple
+#   listener_wss_external: 8084
+#   listener_wss_external_mqtt_path: /mqtt
+#   listener_wss_external_acceptors: 4
+#   listener_wss_external_max_connections: 16
+#   listener_wss_external_max_conn_rate: 1000
+#   listener_wss_external_active_n: 100
+#   listener_wss_external_zone: external
+#   listener_wss_external_access_1: allow all
+#   listener_wss_external_verify_protocol_header: on
+#   listener_wss_external_proxy_protocol: on
+#   listener_wss_external_proxy_protocol_timeout: 3s
+#   listener_wss_external_tls_versions: tlsv1.2,tlsv1.1,tlsv1
+#   listener_wss_external_keyfile: /etc/emqx/certs/key.pem
+#   listener_wss_external_certfile: /etc/emqx/certs/cert.pem
+#   listener_wss_external_cacertfile: /etc/emqx/certs/cacert.pem
+#   listener_ssl_external_dhfile: /etc/emqx/certs/dh-params.pem
+#   listener_wss_external_verify: verify_peer
+#   listener_wss_external_fail_if_no_peer_cert: true
+#   listener_wss_external_ciphers: ECDHE-ECDSA-AES256-GCM-SHA384,ECDHE-RSA-AES256-GCM-SHA384,ECDHE-ECDSA-AES256-SHA384,ECDHE-RSA-AES256-SHA384,ECDHE-ECDSA-DES-CBC3-SHA,ECDH-ECDSA-AES256-GCM-SHA384,ECDH-RSA-AES256-GCM-SHA384,ECDH-ECDSA-AES256-SHA384,ECDH-RSA-AES256-SHA384,DHE-DSS-AES256-GCM-SHA384,DHE-DSS-AES256-SHA256,AES256-GCM-SHA384,AES256-SHA256,ECDHE-ECDSA-AES128-GCM-SHA256,ECDHE-RSA-AES128-GCM-SHA256,ECDHE-ECDSA-AES128-SHA256,ECDHE-RSA-AES128-SHA256,ECDH-ECDSA-AES128-GCM-SHA256,ECDH-RSA-AES128-GCM-SHA256,ECDH-ECDSA-AES128-SHA256,ECDH-RSA-AES128-SHA256,DHE-DSS-AES128-GCM-SHA256,DHE-DSS-AES128-SHA256,AES128-GCM-SHA256,AES128-SHA256,ECDHE-ECDSA-AES256-SHA,ECDHE-RSA-AES256-SHA,DHE-DSS-AES256-SHA,ECDH-ECDSA-AES256-SHA,ECDH-RSA-AES256-SHA,AES256-SHA,ECDHE-ECDSA-AES128-SHA,ECDHE-RSA-AES128-SHA,DHE-DSS-AES128-SHA,ECDH-ECDSA-AES128-SHA,ECDH-RSA-AES128-SHA,AES128-SHA
+#   listener_wss_external_psk_ciphers: PSK-AES128-CBC-SHA,PSK-AES256-CBC-SHA,PSK-3DES-EDE-CBC-SHA,PSK-RC4-SHA
+#   listener_wss_external_secure_renegotiate: off
+#   listener_wss_external_reuse_sessions: on
+#   listener_wss_external_honor_cipher_order: on
+#   listener_wss_external_peer_cert_as_username: cn
+#   listener_wss_external_backlog: 1024
+#   listener_wss_external_send_timeout: 15s
+#   listener_wss_external_send_timeout_close: on
+#   listener_wss_external_recbuf: 4KB
+#   listener_wss_external_sndbuf: 4KB
+#   listener_wss_external_buffer: 4KB
+#   listener_wss_external_nodelay: true
+#   listener_wss_external_compress: true
+#   listener_wss_external_deflate_opts_level: default
+#   listener_wss_external_deflate_opts_mem_level: 8
+#   listener_wss_external_deflate_opts_strategy: default
+#   listener_wss_external_deflate_opts_server_context_takeover: takeover
+#   listener_wss_external_deflate_opts_client_context_takeover: takeover
+#   listener_wss_external_deflate_opts_server_max_window_bits: 15
+#   listener_wss_external_deflate_opts_client_max_window_bits: 15
+#   listener_wss_external_idle_timeout: 60s
+#   listener_wss_external_max_frame_size: 0
+#   listener_wss_external_mqtt_piggyback: multiple
+#   modules_loaded_file: /var/lib/emqx/loaded_modules
+#   module_presence_qos: 1
+#   module_subscription_1_topic: connected/%c/%u
+#   module_subscription_1_qos: 0
+#   module_subscription_1_nl: 0
+#   module_subscription_1_rap: 0
+#   module_subscription_1_rh: 0
+#   module_rewrite_pub_rule_1: x/# ^x/y/(.+)$ z/y/$1
+#   module_rewrite_sub_rule_1: y/+/z/# ^y/(.+)/z/(.+)$ y/z/$2
+#   plugins_etc_dir: /etc/emqx/plugins/
+#   plugins_loaded_file: /var/lib/emqx/loaded_plugins
+#   plugins_expand_plugins_dir: /var/lib/emqx/plugins/
+#   broker_sys_interval: 1m
+#   broker_sys_heartbeat: 30s
+#   broker_session_locking_strategy: quorum
+#   broker_shared_subscription_strategy: random
+#   broker_shared_dispatch_ack_enabled: false
+#   broker_route_batch_clean: off
+#   sysmon_long_gc: 0
+#   sysmon_long_schedule: 240ms
+#   sysmon_large_heap: 8MB
+#   sysmon_busy_port: false
+#   sysmon_busy_dist_port: true
+#   os_mon_cpu_check_interval: 60s
+#   os_mon_cpu_high_watermark: 80%
+#   os_mon_cpu_low_watermark: 60%
+#   os_mon_mem_check_interval: 60s
+#   os_mon_sysmem_high_watermark: 70%
+#   os_mon_procmem_high_watermark: 5%
+#   vm_mon_check_interval: 30s
+#   vm_mon_process_high_watermark: 80%
+#   vm_mon_process_low_watermark: 60%
+#   alarm_actions: log,publish
+#   alarm_size_limit: 1000
+#   alarm_validity_period: 24h
+#   reloader_interval:  60s
+#   reloader_logfile:  reloader_log
+#   retainer_storage_type:  ram
+#   retainer_max_retained_messages:  0
+#   retainer_max_payload_size:  1MB
+#   retainer_expiry_interval:  0
+#   rule_engine_ignore_sys_message:  on
+#   rule_engine_events_client_connected:  off
+#   rule_engine_events_client_disconnected:  off
+#   rule_engine_events_session_subscribed:  off
+#   rule_engine_events_session_unsubscribed:  off
+#   rule_engine_events_message_delivered:  off
+#   rule_engine_events_message_acked:  off
+#   rule_engine_events_message_dropped:  off
+#   statsd_push_gateway_server:  http://127_0_0_1:9091
+#   statsd_interval:  15000
+
+# emq_plugin_dashboard:
+#   dashboard_default_user_login:  admin
+#   dashboard_default_user_password:  public
+#   dashboard_listener_http:  18083
+#   dashboard_listener_http_acceptors:  4
+#   dashboard_listener_http_max_clients:  512
+#   dashboard_listener_http_inet6:  false
+#   dashboard_listener_http_ipv6_v6only:  false
+#   dashboard_listener_https:  18084
+#   dashboard_listener_https_acceptors:  2
+#   dashboard_listener_https_max_clients:  512
+#   dashboard_listener_https_inet6:  false
+#   dashboard_listener_https_ipv6_v6only:  false
+#   dashboard_listener_https_keyfile:  etc/certs/key_pem
+#   dashboard_listener_https_certfile:  etc/certs/cert_pem
+#   dashboard_listener_https_cacertfile:  etc/certs/cacert_pem
+#   dashboard_listener_https_dhfile:  {{ platform_etc_dir }}/certs/dh-params_pem
+#   dashboard_listener_https_verify:  verify_peer
+#   dashboard_listener_https_fail_if_no_peer_cert:  true
+#   dashboard_listener_https_tls_versions:  tlsv1_2,tlsv1_1,tlsv1
+#   dashboard_listener_https_ciphers:  ECDHE-ECDSA-AES256-GCM-SHA384,ECDHE-RSA-AES256-GCM-SHA384,ECDHE-ECDSA-AES256-SHA384,ECDHE-RSA-AES256-SHA384,ECDHE-ECDSA-DES-CBC3-SHA,ECDH-ECDSA-AES256-GCM-SHA384,ECDH-RSA-AES256-GCM-SHA384,ECDH-ECDSA-AES256-SHA384,ECDH-RSA-AES256-SHA384,DHE-DSS-AES256-GCM-SHA384,DHE-DSS-AES256-SHA256,AES256-GCM-SHA384,AES256-SHA256,ECDHE-ECDSA-AES128-GCM-SHA256,ECDHE-RSA-AES128-GCM-SHA256,ECDHE-ECDSA-AES128-SHA256,ECDHE-RSA-AES128-SHA256,ECDH-ECDSA-AES128-GCM-SHA256,ECDH-RSA-AES128-GCM-SHA256,ECDH-ECDSA-AES128-SHA256,ECDH-RSA-AES128-SHA256,DHE-DSS-AES128-GCM-SHA256,DHE-DSS-AES128-SHA256,AES128-GCM-SHA256,AES128-SHA256,ECDHE-ECDSA-AES256-SHA,ECDHE-RSA-AES256-SHA,DHE-DSS-AES256-SHA,ECDH-ECDSA-AES256-SHA,ECDH-RSA-AES256-SHA,AES256-SHA,ECDHE-ECDSA-AES128-SHA,ECDHE-RSA-AES128-SHA,DHE-DSS-AES128-SHA,ECDH-ECDSA-AES128-SHA,ECDH-RSA-AES128-SHA,AES128-SHA
+#   dashboard_listener_https_secure_renegotiate:  off
+#   dashboard_listener_https_reuse_sessions:  on
+#   dashboard_listener_https_honor_cipher_order:  on
+
+# emq_plugin_management:
+#   management_max_row_limit:  10000
+#   management_default_application_id:  admin
+#   management_default_application_secret:  public
+#   management_listener_http:  8081
+#   management_listener_http_acceptors:  2
+#   management_listener_http_max_clients:  512
+#   management_listener_http_backlog:  512
+#   management_listener_http_send_timeout:  15s
+#   management_listener_http_send_timeout_close:  on
+#   management_listener_http_inet6:  false
+#   management_listener_http_ipv6_v6only:  false
+#   management_listener_https:  8081
+#   management_listener_https_acceptors:  2
+#   management_listener_https_max_clients:  512
+#   management_listener_https_backlog:  512
+#   management_listener_https_send_timeout:  15s
+#   management_listener_https_send_timeout_close:  on
+#   management_listener_https_certfile:  etc/certs/cert_pem
+#   management_listener_https_keyfile:  etc/certs/key_pem
+#   management_listener_https_cacertfile:  etc/certs/cacert_pem
+#   management_listener_https_verify:  verify_peer
+#   management_listener_https_tls_versions:  tlsv1_2,tlsv1_1,tlsv1
+#   management_listener_https_ciphers:  ECDHE-ECDSA-AES256-GCM-SHA384,ECDHE-RSA-AES256-GCM-SHA384,ECDHE-ECDSA-AES256-SHA384,ECDHE-RSA-AES256-SHA384,ECDHE-ECDSA-DES-CBC3-SHA,ECDH-ECDSA-AES256-GCM-SHA384,ECDH-RSA-AES256-GCM-SHA384,ECDH-ECDSA-AES256-SHA384,ECDH-RSA-AES256-SHA384,DHE-DSS-AES256-GCM-SHA384,DHE-DSS-AES256-SHA256,AES256-GCM-SHA384,AES256-SHA256,ECDHE-ECDSA-AES128-GCM-SHA256,ECDHE-RSA-AES128-GCM-SHA256,ECDHE-ECDSA-AES128-SHA256,ECDHE-RSA-AES128-SHA256,ECDH-ECDSA-AES128-GCM-SHA256,ECDH-RSA-AES128-GCM-SHA256,ECDH-ECDSA-AES128-SHA256,ECDH-RSA-AES128-SHA256,DHE-DSS-AES128-GCM-SHA256,DHE-DSS-AES128-SHA256,AES128-GCM-SHA256,AES128-SHA256,ECDHE-ECDSA-AES256-SHA,ECDHE-RSA-AES256-SHA,DHE-DSS-AES256-SHA,ECDH-ECDSA-AES256-SHA,ECDH-RSA-AES256-SHA,AES256-SHA,ECDHE-ECDSA-AES128-SHA,ECDHE-RSA-AES128-SHA,DHE-DSS-AES128-SHA,ECDH-ECDSA-AES128-SHA,ECDH-RSA-AES128-SHA,AES128-SHA
+#   management_listener_https_fail_if_no_peer_cert:  true
+#   management_listener_https_inet6:  false
+#   management_listener_https_ipv6_v6only:  false
+
+# emq_plugin_auth_clientid:
+#   auth_client_password_hash: 'sha256'
+
+# emq_plugin_auth_http:
+#   auth_http_auth_req:  http://127.0.0.1:9999/auth
+#   auth_http_auth_req_method:  post
+#   auth_http_auth_req_content_type:  x-www-form-urlencoded
+#   auth_http_auth_req_params:  clientid=%c,username=%u,password=%P,token=%u
+#   auth_http_super_req:  http://127_0_0_1:8991/mqtt/superuser
+#   auth_http_super_req_method:  post
+#   auth_http_super_req_content_type:  x-www-form-urlencoded
+#   auth_http_super_req_params:  clientid: %c,username: %u
+#   auth_http_acl_req:  http://127.0.0.1:9999/acl
+#   auth_http_acl_req_method:  post
+#   auth_http_acl_req_content_type:  x-www-form-urlencoded
+#   auth_http_acl_req_params:  access: %A,username: %u,clientid: %c,ipaddr: %a,topic: %t,mountpoint: %m
+#   auth_http_request_timeout:  0
+#   auth_http_request_connect_timeout:  0
+#   auth_http_request_retry_times:  3
+#   auth_http_request_retry_interval:  1s
+#   auth_http_request_retry_backoff:  2_0
+#   auth_http_ssl_cacertfile:  /etc/emqx/certs/ca_pem
+#   auth_http_ssl_certfile:  /etc/emqx/certs/client-cert_pem
+#   auth_http_ssl_keyfile:  /etc/emqx/certs/client-key_pem
+#   auth_http_header_Accept:  */*
+
+# emq_plugin_auth_jwt:
+#   auth_jwt_secret: emqxsecret
+#   auth_jwt_from: password
+#   auth_jwt_verify_claims: off
+
+# emq_plugin_auth_ldap: 
+#   auth_ldap_servers: 127_0_0_1
+#   auth_ldap_port: 389
+#   auth_ldap_pool: 8
+#   auth_ldap_bind_dn: cn=root,dc=emqx,dc=io
+#   auth_ldap_bind_password: public
+#   auth_ldap_timeout: 30s
+#   auth_ldap_device_dn: ou=device,dc=emqx,dc=io
+#   auth_ldap_match_objectclass: mqttUser
+#   auth_ldap_username_attributetype: uid
+#   auth_ldap_password_attributetype: userPassword
+#   auth_ldap_ssl: false
+
+# emq_plugin_auth_mongo:
+#   auth_mongo_type:  single
+#   auth_mongo_server:  127_0_0_1:27017
+#   auth_mongo_pool:  8
+#   auth_mongo_database:  mqtt
+#   auth_mongo_topology_pool_size:  1
+#   auth_mongo_topology_max_overflow:  0
+#   auth_mongo_auth_query_collection:  mqtt_user
+#   auth_mongo_auth_query_password_field:  password
+#   auth_mongo_auth_query_password_hash:  sha256
+#   auth_mongo_auth_query_password_hash:  sha256
+#   auth_mongo_super_query:  on
+#   auth_mongo_super_query_collection:  mqtt_user
+#   auth_mongo_super_query_super_field:  is_superuser
+#   auth_mongo_super_query_selector:  username: %u
+#   auth_mongo_acl_query:  on
+#   auth_mongo_acl_query_collection:  mqtt_acl
+#   auth_mongo_acl_query_selector:  username= %u
+
+# emq_plugin_auth_mysql:
+#   auth_mysql_server:  127_0_0_1:3306
+#   auth_mysql_pool:  8
+#   auth_mysql_database:  mqtt
+#   auth_mysql_auth_query:  select password from mqtt_user where username:  '%u' limit 1
+#   auth_mysql_password_hash:  sha256
+#   auth_mysql_super_query:  select is_superuser from mqtt_user where username = '%u' limit 1
+#   auth_mysql_acl_query:   select allow, ipaddr, username, clientid, access, topic from mqtt_acl where ipaddr = '%a' or username = '%u' or username = '$all' or clientid = '%c'
+
+# emq_plugin_auth_pgsql:
+#   auth_pgsql_server:  127_0_0_1:5432
+#   auth_pgsql_pool:  8
+#   auth_pgsql_username:  root
+#   auth_pgsql_database:  mqtt
+#   auth_pgsql_encoding:  utf8
+#   auth_pgsql_ssl:  false
+#   auth_pgsql_auth_query:  select password from mqtt_user where username:  '%u' limit 1
+#   auth_pgsql_password_hash:  sha256
+#   auth_pgsql_super_query:  select is_superuser from mqtt_user where username = '%u' limit 1
+#   auth_pgsql_acl_query:  select allow, ipaddr, username, clientid, access, topic from mqtt_acl where ipaddr = '%a' or username = '%u' or username = '$all' or clientid = '%c'
+
+# emq_plugin_auth_redis:
+#   auth_redis_type:  single
+#   auth_redis_server:  127_0_0_1:6379
+#   auth_redis_pool:  8
+#   auth_redis_database:  0
+#   auth_redis_auth_cmd:  HMGET mqtt_user:%u password
+#   auth_redis_password_hash:  plain
+#   auth_redis_super_cmd:  HGET mqtt_user:%u is_superuser
+#   auth_redis_acl_cmd:  HGETALL mqtt_acl:%u
+
+# emq_plugin_bridge_mqtt:
+#   bridge_mqtt_aws_address:  127_0_0_1:1883
+#   bridge_mqtt_aws_proto_ver:  mqttv4
+#   bridge_mqtt_aws_start_type:  manual
+#   bridge_mqtt_aws_bridge_mode:  true
+#   bridge_mqtt_aws_clientid:  bridge_aws
+#   bridge_mqtt_aws_clean_start:  true
+#   bridge_mqtt_aws_username:  user
+#   bridge_mqtt_aws_password:  passwd
+#   bridge_mqtt_aws_forwards:  topic1/#,topic2/#
+#   bridge_mqtt_aws_forward_mountpoint:  bridge/aws/${node}/
+#   bridge_mqtt_aws_ssl:  off
+#   bridge_mqtt_aws_cacertfile:  etc/certs/cacert_pem
+#   bridge_mqtt_aws_certfile:  etc/certs/client-cert_pem
+#   bridge_mqtt_aws_keyfile:  etc/certs/client-key_pem
+#   bridge_mqtt_aws_ciphers:  ECDHE-ECDSA-AES256-GCM-SHA384,ECDHE-RSA-AES256-GCM-SHA384
+#   bridge_mqtt_aws_psk_ciphers:  PSK-AES128-CBC-SHA,PSK-AES256-CBC-SHA,PSK-3DES-EDE-CBC-SHA,PSK-RC4-SHA
+#   bridge_mqtt_aws_keepalive:  60s
+#   bridge_mqtt_aws_tls_versions:  tlsv1_2,tlsv1_1,tlsv1
+#   bridge_mqtt_aws_reconnect_interval:  30s
+#   bridge_mqtt_aws_retry_interval:  20s
+#   bridge_mqtt_aws_batch_size:  32
+#   bridge_mqtt_aws_max_inflight_size:  32
+#   bridge_mqtt_aws_queue_replayq_dir:  data/emqx_aws_bridge/
+#   bridge_mqtt_aws_queue_replayq_seg_bytes:  10MB
+#   bridge_mqtt_aws_queue_max_total_size:  5GB
+
+# emq_plugin_coap:
+#   coap_port:  5683
+#   coap_enable_stats:  off
+#   coap_dtls_port:  5684
+#   coap_dtls_keyfile:  etc/certs/key_pem
+#   coap_dtls_certfile:  etc/certs/cert_pem
+#   coap_dtls_ciphers:  ECDHE-ECDSA-AES256-GCM-SHA384,ECDHE-RSA-AES256-GCM-SHA384,ECDHE-ECDSA-AES256-SHA384,ECDHE-RSA-AES256-SHA384,ECDHE-ECDSA-DES-CBC3-SHA,ECDH-ECDSA-AES256-GCM-SHA384,ECDH-RSA-AES256-GCM-SHA384,ECDH-ECDSA-AES256-SHA384,ECDH-RSA-AES256-SHA384,DHE-DSS-AES256-GCM-SHA384,DHE-DSS-AES256-SHA256,AES256-GCM-SHA384,AES256-SHA256,ECDHE-ECDSA-AES128-GCM-SHA256,ECDHE-RSA-AES128-GCM-SHA256,ECDHE-ECDSA-AES128-SHA256,ECDHE-RSA-AES128-SHA256,ECDH-ECDSA-AES128-GCM-SHA256,ECDH-RSA-AES128-GCM-SHA256,ECDH-ECDSA-AES128-SHA256,ECDH-RSA-AES128-SHA256,DHE-DSS-AES128-GCM-SHA256,DHE-DSS-AES128-SHA256,AES128-GCM-SHA256,AES128-SHA256,ECDHE-ECDSA-AES256-SHA,ECDHE-RSA-AES256-SHA,DHE-DSS-AES256-SHA,ECDH-ECDSA-AES256-SHA,ECDH-RSA-AES256-SHA,AES256-SHA,ECDHE-ECDSA-AES128-SHA,ECDHE-RSA-AES128-SHA,DHE-DSS-AES128-SHA,ECDH-ECDSA-AES128-SHA,ECDH-RSA-AES128-SHA,AES128-SHA
+
+# emq_plugin_recon:
+#   recon_gc_interval:  5m
+
+# emq_plugin_delayed_publish:
+#   lwm2m_port:  5683
+#   lwm2m_lifetime_min:  1s
+#   lwm2m_lifetime_max:  86400s
+#   lwm2m_mountpoint:  lwm2m/%e/
+#   lwm2m_topics_command:  dn/#
+#   lwm2m_topics_response:  up/resp
+#   lwm2m_topics_notify:  up/notify
+#   lwm2m_topics_register:  up/resp
+#   lwm2m_topics_update:  up/resp
+#   lwm2m_opts_buffer:  1024KB
+#   lwm2m_opts_recbuf:  1024KB
+#   lwm2m_opts_sndbuf:  1024KB
+#   lwm2m_opts_read_packets:  20
+#   lwm2m_certfile:  etc/certs/cert_pem
+#   lwm2m_keyfile:  etc/certs/key_pem
+#   lwm2m_xml_dir:  etc/lwm2m_xml
+
+# emq_plugin_sn:
+#   mqtt_sn_port:  1884
+#   mqtt_sn_advertise_duration:  15s
+#   mqtt_sn_gateway_id:  1
+#   mqtt_sn_enable_stats:  off
+#   mqtt_sn_enable_qos3:  off
+#   mqtt_sn_idle_timeout:  30s
+#   mqtt_sn_predefined_topic_0:  reserved
+#   mqtt_sn_predefined_topic_1:  /predefined/topic/name/hello
+#   mqtt_sn_predefined_topic_2:  /predefined/topic/name/nice
+#   mqtt_sn_username:  mqtt_sn_user
+#   mqtt_sn_password:  abc
+
+# emq_plugin_stomp:
+#   stomp_listener:  61613
+#   stomp_listener_acceptors:  4
+#   stomp_listener_max_clients:  512
+#   stomp_default_user_login:  guest
+#   stomp_default_user_passcode:  guest
+#   stomp_allow_anonymous:  true
+#   stomp_frame_max_headers:  10
+#   stomp_frame_max_header_length:  1024
+#   stomp_frame_max_body_length:  8192
+
+# emq_plugin_web_hook:
+#   web_hook_api_url:  http://127_0_0_1:8080
+#   web_hook_rule_client_connect_1:  {"action": "on_client_connect"}
+#   web_hook_rule_client_connack_1:  {"action": "on_client_connack"}
+#   web_hook_rule_client_connected_1:  {"action": "on_client_connected"}
+#   web_hook_rule_client_disconnected_1:  {"action": "on_client_disconnected"}
+#   web_hook_rule_client_subscribe_1:  {"action": "on_client_subscribe"}
+#   web_hook_rule_client_unsubscribe_1:  {"action": "on_client_unsubscribe"}
+#   web_hook_rule_session_subscribed_1:  {"action": "on_session_subscribed"}
+#   web_hook_rule_session_unsubscribed_1:  {"action": "on_session_unsubscribed"}
+#   web_hook_rule_session_terminated_1:  {"action": "on_session_terminated"}
+#   web_hook_rule_message_publish_1:  {"action": "on_message_publish"}
+#   web_hook_rule_message_delivered_1:  {"action": "on_message_delivered"}
+#   web_hook_rule_message_acked_1:  {"action": "on_message_acked"}

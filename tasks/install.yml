@@ -1,0 +1,31 @@
+---
+- name: EMQX | Ubuntu installation | adding and removing public GPG keys to the apt repo
+  apt_key: 
+    url: "{{emq_key[item].url }}" 
+    state: "{{emq_key[item].state }}" 
+  with_items:   "{{ emq_key | list }}"
+  environment: "{{ emq_proxy_env }}"
+  tags: 
+    - apt_key
+
+- name: EMQX | Ubuntu installation | adding and removing repos 
+  apt_repository: 
+    repo: "{{ emq_repo[item].url }} "
+    state: "{{ emq_repo[item].state }}" 
+    filename: "{{ emq_repo[item].filename | default('') }}"
+  environment: "{{ emq_proxy_env }}"
+  with_items:   "{{ emq_repo | list }}"
+  tags: 
+    - apt_repo
+
+- name: EMQX | Ubuntu installation | installing and removing packages
+  apt: 
+    name: "{{ emq_package[item].name }}" 
+    state: "{{ emq_package[item].state }}" 
+    update_cache: "{{ emq_package[item].update_cache }}"
+    purge:  "{{ emq_package[item].purge | default(no) }}"
+  with_items:   "{{ emq_package | list }}"
+  environment: "{{ emq_proxy_env }}"
+  tags: 
+    - apt_install
+

@@ -1,0 +1,87 @@
+# {{ ansible_managed }}
+
+##--------------------------------------------------------------------
+## EMQ X Management Plugin
+##--------------------------------------------------------------------
+#
+{% if emq_plugin_management[item].management_max_row_limit is defined %}
+management.max_row_limit={{ emq_plugin_management[item].management_max_row_limit }}
+{% endif %}
+{% if emq_plugin_management[item].management_application_default_secret is defined %}
+management.application.default_secret={{ emq_plugin_management[item].management_application_default_secret }}
+{% endif %}
+{% if emq_plugin_management[item].management_default_application_id is defined %}
+management.default_application.id={{ emq_plugin_management[item].management_default_application_id }}
+{% endif %}
+{% if emq_plugin_management[item].management_default_application_secret is defined %}
+management.default_application.secret={{ emq_plugin_management[item].management_default_application_secret }}
+{% endif %}
+{% if emq_plugin_management[item].management_listener_http is defined %}
+management.listener.http={{ emq_plugin_management[item].management_listener_http }}
+{% endif %}
+{% if emq_plugin_management[item].management_listener_http_acceptors is defined %}
+management.listener.http.acceptors={{ emq_plugin_management[item].management_listener_http_acceptors }}
+{% endif %}
+{% if emq_plugin_management[item].management_listener_http_max_clients is defined %}
+management.listener.http.max_clients={{ emq_plugin_management[item].management_listener_http_max_clients }}
+{% endif %}
+{% if emq_plugin_management[item].management_listener_http_backlog is defined %}
+management.listener.http.backlog={{ emq_plugin_management[item].management_listener_http_backlog }}
+{% endif %}
+{% if emq_plugin_management[item].management_listener_http_send_timeout is defined %}
+management.listener.http.send_timeout={{ emq_plugin_management[item].management_listener_http_send_timeout }}
+{% endif %}
+{% if emq_plugin_management[item].management_listener_http_send_timeout_close is defined %}
+management.listener.http.send_timeout_close={{ emq_plugin_management[item].management_listener_http_send_timeout_close }}
+{% endif %}
+{% if emq_plugin_management[item].management_listener_http_inet6 is defined %}
+management.listener.http.inet6={{ emq_plugin_management[item].management_listener_http_inet6 }}
+{% endif %}
+{% if emq_plugin_management[item].management_listener_http_ipv6_v6only is defined %}
+management.listener.http.ipv6_v6only={{ emq_plugin_management[item].management_listener_http_ipv6_v6only }}
+{% endif %}
+{% if emq_plugin_management[item].management_listener_https is defined %}
+management.listener.https={{ emq_plugin_management[item].management_listener_https }}
+{% endif %}
+{% if emq_plugin_management[item].management_listener_https_acceptors is defined %}
+management.listener.https.acceptors={{ emq_plugin_management[item].management_listener_https_acceptors }}
+{% endif %}
+{% if emq_plugin_management[item].management_listener_https_max_clients is defined %}
+management.listener.https.max_clients={{ emq_plugin_management[item].management_listener_https_max_clients }}
+{% endif %}
+{% if emq_plugin_management[item].management_listener_https_backlog is defined %}
+management.listener.https.backlog={{ emq_plugin_management[item].management_listener_https_backlog }}
+{% endif %}
+{% if emq_plugin_management[item].management_listener_https_send_timeout is defined %}
+management.listener.https.send_timeout={{ emq_plugin_management[item].management_listener_https_send_timeout }}
+{% endif %}
+{% if emq_plugin_management[item].management_listener_https_send_timeout_close is defined %}
+management.listener.https.send_timeout_close={{ emq_plugin_management[item].management_listener_https_send_timeout_close }}
+{% endif %}
+{% if emq_plugin_management[item].management_listener_https_certfile is defined %}
+management.listener.https.certfile={{ emq_plugin_management[item].management_listener_https_certfile }}
+{% endif %}
+{% if emq_plugin_management[item].management_listener_https_keyfile is defined %}
+management.listener.https.keyfile={{ emq_plugin_management[item].management_listener_https_keyfile }}
+{% endif %}
+{% if emq_plugin_management[item].management_listener_https_cacertfile is defined %}
+management.listener.https.cacertfile={{ emq_plugin_management[item].management_listener_https_cacertfile }}
+{% endif %}
+{% if emq_plugin_management[item].management_listener_https_verify is defined %}
+management.listener.https.verify={{ emq_plugin_management[item].management_listener_https_verify }}
+{% endif %}
+{% if emq_plugin_management[item].management_listener_https_tls_versions is defined %}
+management.listener.https.tls_versions={{ emq_plugin_management[item].management_listener_https_tls_versions }}
+{% endif %}
+{% if emq_plugin_management[item].management_listener_https_ciphers is defined %}
+management.listener.https.ciphers={{ emq_plugin_management[item].management_listener_https_ciphers }}
+{% endif %}
+{% if emq_plugin_management[item].management_listener_https_fail_if_no_peer_cert is defined %}
+management.listener.https.fail_if_no_peer_cert={{ emq_plugin_management[item].management_listener_https_fail_if_no_peer_cert }}
+{% endif %}
+{% if emq_plugin_management[item].management_listener_https_inet6 is defined %}
+management.listener.https.inet6={{ emq_plugin_management[item].management_listener_https_inet6 }}
+{% endif %}
+{% if emq_plugin_management[item].management_listener_https_ipv6_v6only is defined %}
+management.listener.https.ipv6_v6only={{ emq_plugin_management[item].management_listener_https_ipv6_v6only }}
+{% endif %}

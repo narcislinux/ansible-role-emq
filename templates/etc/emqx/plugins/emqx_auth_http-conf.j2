@@ -1,0 +1,69 @@
+# {{ ansible_managed }}
+
+##--------------------------------------------------------------------
+## HTTP Auth/ACL Plugin
+##--------------------------------------------------------------------
+#
+{% if emq_plugin_auth_http[item].auth_http_auth_req is defined %}
+auth.http.auth_req={{ emq_plugin_auth_http[item].auth_http_auth_req }}
+{% endif %}
+{% if emq_plugin_auth_http[item].auth_http_auth_req_method is defined %}
+auth.http.auth_req.method={{ emq_plugin_auth_http[item].auth_http_auth_req_method }}
+{% endif %}
+{% if emq_plugin_auth_http[item].auth_http_auth_req_content_type is defined %}
+auth.http.auth_req.content_type={{ emq_plugin_auth_http[item].auth_http_auth_req_content_type }}
+{% endif %}
+{% if emq_plugin_auth_http[item].auth_http_auth_req_params is defined %}
+auth.http.auth_req.params={{ emq_plugin_auth_http[item].auth_http_auth_req_params }}
+{% endif %}
+{% if emq_plugin_auth_http[item].auth_http_super_req is defined %}
+auth.http.super_req={{ emq_plugin_auth_http[item].auth_http_super_req }}
+{% endif %}
+{% if emq_plugin_auth_http[item].auth_http_super_req_method is defined %}
+auth.http.super_req.method={{ emq_plugin_auth_http[item].auth_http_super_req_method }}
+{% endif %}
+{% if emq_plugin_auth_http[item].auth_http_super_req_content_type is defined %}
+auth.http.super_req.content_type={{ emq_plugin_auth_http[item].auth_http_super_req_content_type }}
+{% endif %}
+{% if emq_plugin_auth_http[item].auth_http_super_req_params is defined %}
+auth.http.super_req.params={{ emq_plugin_auth_http[item].auth_http_super_req_params }}
+{% endif %}
+{% if emq_plugin_auth_http[item].auth_http_acl_req is defined %}
+auth.http.acl_req={{ emq_plugin_auth_http[item].auth_http_acl_req }}
+{% endif %}
+{% if emq_plugin_auth_http[item].auth_http_acl_req_method is defined %}
+auth.http.acl_req.method={{ emq_plugin_auth_http[item].auth_http_acl_req_method }}
+{% endif %}
+{% if emq_plugin_auth_http[item].auth_http_acl_req_content_type is defined %}
+auth.http.acl_req.content_type={{ emq_plugin_auth_http[item].auth_http_acl_req_content_type }}
+{% endif %}
+{% if emq_plugin_auth_http[item].auth_http_acl_req_params is defined %}
+auth.http.acl_req.params={{ emq_plugin_auth_http[item].auth_http_acl_req_params }}
+{% endif %}
+{% if emq_plugin_auth_http[item].auth_http_request_timeout is defined %}
+auth.http.request.timeout={{ emq_plugin_auth_http[item].auth_http_request_timeout }}
+{% endif %}
+{% if emq_plugin_auth_http[item].auth_http_request_connect_timeout is defined %}
+auth.http.request.connect_timeout={{ emq_plugin_auth_http[item].auth_http_request_connect_timeout }}
+{% endif %}
+{% if emq_plugin_auth_http[item].auth_http_request_retry_times is defined %}
+auth.http.request.retry_times={{ emq_plugin_auth_http[item].auth_http_request_retry_times }}
+{% endif %}
+{% if emq_plugin_auth_http[item].auth_http_request_retry_interval is defined %}
+auth.http.request.retry_interval={{ emq_plugin_auth_http[item].auth_http_request_retry_interval }}
+{% endif %}
+{% if emq_plugin_auth_http[item].auth_http_request_retry_backoff is defined %}
+auth.http.request.retry_backoff={{ emq_plugin_auth_http[item].auth_http_request_retry_backoff }}
+{% endif %}
+{% if emq_plugin_auth_http[item].auth_http_ssl_cacertfile is defined %}
+auth.http.ssl.cacertfile={{ emq_plugin_auth_http[item].auth_http_ssl_cacertfile }}
+{% endif %}
+{% if emq_plugin_auth_http[item].auth_http_ssl_certfile is defined %}
+auth.http.ssl.certfile={{ emq_plugin_auth_http[item].auth_http_ssl_certfile }}
+{% endif %}
+{% if emq_plugin_auth_http[item].auth_http_ssl_keyfile is defined %}
+auth.http.ssl.keyfile={{ emq_plugin_auth_http[item].auth_http_ssl_keyfile }}
+{% endif %}
+{% if emq_plugin_auth_http[item].auth_http_header_Accept is defined %}
+auth.http.header.Accept={{ emq_plugin_auth_http[item].auth_http_header_Accept }}
+{% endif %}

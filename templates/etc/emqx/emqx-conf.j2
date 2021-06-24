@@ -1,0 +1,1578 @@
+# {{ ansible_managed }}
+
+##====================================================================
+## EMQ X Configuration R4.0
+##====================================================================
+
+{% if emq_config[item].cluster_name is defined %}
+cluster.name={{ emq_config[item].cluster_name }}
+{% endif -%}
+{% if emq_config[item].cluster_proto_dist is defined %}
+cluster.proto_dist={{ emq_config[item].cluster_proto_dist }}
+{% endif -%}
+{% if emq_config[item].cluster_discovery is defined %}
+cluster.discovery={{ emq_config[item].cluster_discovery }}
+{% endif -%}
+{% if emq_config[item].cluster_autoheal is defined %}
+cluster.autoheal={{ emq_config[item].cluster_autoheal }}
+{% endif -%}
+{% if emq_config[item].cluster_autoclean is defined %}
+cluster.autoclean={{ emq_config[item].cluster_autoclean }}
+{% endif -%}
+{% if emq_config[item].cluster_static_seeds is defined %}
+cluster.static.seeds={{ emq_config[item].cluster_static_seeds }}
+{% endif -%}
+{% if emq_config[item].cluster_mcast_addr is defined %}
+cluster.mcast.addr={{ emq_config[item].cluster_mcast_addr }}
+{% endif -%}
+{% if emq_config[item].cluster_mcast_ports is defined %}
+cluster.mcast.ports={{ emq_config[item].cluster_mcast_ports }}
+{% endif -%}
+{% if emq_config[item].cluster_mcast_iface is defined %}
+cluster.mcast.iface={{ emq_config[item].cluster_mcast_iface }}
+{% endif -%}
+{% if emq_config[item].cluster_mcast_ttl is defined %}
+cluster.mcast.ttl={{ emq_config[item].cluster_mcast_ttl }}
+{% endif -%}
+{% if emq_config[item].cluster_mcast_loop is defined %}
+cluster.mcast.loop={{ emq_config[item].cluster_mcast_loop }}
+{% endif -%}
+{% if emq_config[item].cluster_dns_name is defined %}
+cluster.dns.name={{ emq_config[item].cluster_dns_name }}
+{% endif -%}
+{% if emq_config[item].cluster_dns_app is defined %}
+cluster.dns.app={{ emq_config[item].cluster_dns_app }}
+{% endif -%}
+{% if emq_config[item].cluster_etcd_server is defined %}
+cluster.etcd.server={{ emq_config[item].cluster_etcd_server }}
+{% endif -%}
+{% if emq_config[item].cluster_etcd_prefix is defined %}
+cluster.etcd.prefix={{ emq_config[item].cluster_etcd_prefix }}
+{% endif -%}
+{% if emq_config[item].cluster_etcd_node_ttl is defined %}
+cluster.etcd.node_ttl={{ emq_config[item].cluster_etcd_node_ttl }}
+{% endif -%}
+{% if emq_config[item].cluster_etcd_ssl_keyfile is defined %}
+cluster.etcd.ssl.keyfile={{ emq_config[item].cluster_etcd_ssl_keyfile }}
+{% endif -%}
+{% if emq_config[item].cluster_etcd_ssl_certfile is defined %}
+cluster.etcd.ssl.certfile={{ emq_config[item].cluster_etcd_ssl_certfile }}
+{% endif -%}
+{% if emq_config[item].cluster_etcd_ssl_cacertfile is defined %}
+cluster.etcd.ssl.cacertfile={{ emq_config[item].cluster_etcd_ssl_cacertfile }}
+{% endif -%}
+{% if emq_config[item].cluster_k8s_apiserver is defined %}
+cluster.k8s.apiserver={{ emq_config[item].cluster_k8s_apiserver }}
+{% endif -%}
+{% if emq_config[item].cluster_k8s_service_name is defined %}
+cluster.k8s.service_name={{ emq_config[item].cluster_k8s_service_name }}
+{% endif -%}
+{% if emq_config[item].cluster_k8s_address_type is defined %}
+cluster.k8s.address_type={{ emq_config[item].cluster_k8s_address_type }}
+{% endif -%}
+{% if emq_config[item].cluster_k8s_app_name is defined %}
+cluster.k8s.app_name={{ emq_config[item].cluster_k8s_app_name }}
+{% endif -%}
+{% if emq_config[item].cluster_k8s_suffix is defined %}
+cluster.k8s.suffix={{ emq_config[item].cluster_k8s_suffix }}
+{% endif -%}
+{% if emq_config[item].cluster_k8s_namespace is defined %}
+cluster.k8s.namespace={{ emq_config[item].cluster_k8s_namespace }}
+{% endif -%}
+#
+##--------------------------------------------------------------------
+## Node
+##--------------------------------------------------------------------
+#
+{% if emq_config[item].node_name is defined %}
+node.name={{ emq_config[item].node_name }}
+{% endif -%}
+{% if emq_config[item].node_cookie is defined %}
+node.cookie={{ emq_config[item].node_cookie }}
+{% endif -%}
+{% if emq_config[item].node_data_dir is defined %}
+node.data_dir={{ emq_config[item].node_data_dir }}
+{% endif -%}
+{% if emq_config[item].node_heartbeat is defined %}
+node.heartbeat={{ emq_config[item].node_heartbeat }}
+{% endif -%}
+{% if emq_config[item].node_async_threads is defined %}
+node.async_threads={{ emq_config[item].node_async_threads }}
+{% endif -%}
+{% if emq_config[item].node_process_limit is defined %}
+node.process_limit={{ emq_config[item].node_process_limit }}
+{% endif -%}
+{% if emq_config[item].node_max_ports is defined %}
+node.max_ports={{ emq_config[item].node_max_ports }}
+{% endif -%}
+{% if emq_config[item].node_dist_buffer_size is defined %}
+node.dist_buffer_size={{ emq_config[item].node_dist_buffer_size }}
+{% endif -%}
+{% if emq_config[item].node_max_ets_tables is defined %}
+node.max_ets_tables={{ emq_config[item].node_max_ets_tables }}
+{% endif -%}
+{% if emq_config[item].node_global_gc_interval is defined %}
+node.global_gc_interval={{ emq_config[item].node_global_gc_interval }}
+{% endif -%}
+{% if emq_config[item].node_fullsweep_after is defined %}
+node.fullsweep_after={{ emq_config[item].node_fullsweep_after }}
+{% endif -%}
+{% if emq_config[item].node_crash_dump is defined %}
+node.crash_dump={{ emq_config[item].node_crash_dump }}
+{% endif -%}
+{% if emq_config[item].node_ssl_dist_optfile is defined %}
+node.ssl_dist_optfile={{ emq_config[item].node_ssl_dist_optfile }}
+{% endif -%}
+{% if emq_config[item].node_dist_net_ticktime is defined %}
+node.dist_net_ticktime={{ emq_config[item].node_dist_net_ticktime }}
+{% endif -%}
+{% if emq_config[item].node_dist_listen_min is defined %}
+node.dist_listen_min={{ emq_config[item].node_dist_listen_min }}
+{% endif -%}
+{% if emq_config[item].node_dist_listen_max is defined %}
+node.dist_listen_max={{ emq_config[item].node_dist_listen_max }}
+{% endif -%}
+#
+##--------------------------------------------------------------------
+## RPC
+##--------------------------------------------------------------------
+#
+{% if emq_config[item].rpc_mode is defined %}
+rpc.mode={{ emq_config[item].rpc_mode }}
+{% endif -%}
+{% if emq_config[item].rpc_async_batch_size is defined %}
+rpc.async_batch_size={{ emq_config[item].rpc_async_batch_size }}
+{% endif -%}
+{% if emq_config[item].rpc_port_discovery is defined %}
+rpc.port_discovery={{ emq_config[item].rpc_port_discovery }}
+{% endif -%}
+{% if emq_config[item].rpc_tcp_server_port is defined %}
+rpc.tcp_server_port={{ emq_config[item].rpc_tcp_server_port }}
+{% endif -%}
+{% if emq_config[item].rpc_tcp_client_port is defined %}
+rpc.tcp_client_port={{ emq_config[item].rpc_tcp_client_port }}
+{% endif -%}
+{% if emq_config[item].rpc_tcp_client_num is defined %}
+rpc.tcp_client_num={{ emq_config[item].rpc_tcp_client_num }}
+{% endif -%}
+{% if emq_config[item].rpc_connect_timeout is defined %}
+rpc.connect_timeout={{ emq_config[item].rpc_connect_timeout }}
+{% endif -%}
+{% if emq_config[item].rpc_send_timeout is defined %}
+rpc.send_timeout={{ emq_config[item].rpc_send_timeout }}
+{% endif -%}
+{% if emq_config[item].rpc_authentication_timeout is defined %}
+rpc.authentication_timeout={{ emq_config[item].rpc_authentication_timeout }}
+{% endif -%}
+{% if emq_config[item].rpc_call_receive_timeout is defined %}
+rpc.call_receive_timeout={{ emq_config[item].rpc_call_receive_timeout }}
+{% endif -%}
+{% if emq_config[item].rpc_socket_keepalive_idle is defined %}
+rpc.socket_keepalive_idle={{ emq_config[item].rpc_socket_keepalive_idle }}
+{% endif -%}
+{% if emq_config[item].rpc_socket_keepalive_interval is defined %}
+rpc.socket_keepalive_interval={{ emq_config[item].rpc_socket_keepalive_interval }}
+{% endif -%}
+{% if emq_config[item].rpc_socket_keepalive_count is defined %}
+rpc.socket_keepalive_count={{ emq_config[item].rpc_socket_keepalive_count }}
+{% endif -%}
+{% if emq_config[item].rpc_socket_sndbuf is defined %}
+rpc.socket_sndbuf={{ emq_config[item].rpc_socket_sndbuf }}
+{% endif -%}
+{% if emq_config[item].rpc_socket_recbuf is defined %}
+rpc.socket_recbuf={{ emq_config[item].rpc_socket_recbuf }}
+{% endif -%}
+{% if emq_config[item].rpc_socket_buffer is defined %}
+rpc.socket_buffer={{ emq_config[item].rpc_socket_buffer }}
+{% endif -%}
+#
+##--------------------------------------------------------------------
+## Log
+##--------------------------------------------------------------------
+#
+{% if emq_config[item].log_to is defined %}
+log.to={{ emq_config[item].log_to }}
+{% endif -%}
+{% if emq_config[item].log_level is defined %}
+log.level={{ emq_config[item].log_level }}
+{% endif -%}
+{% if emq_config[item].log_dir is defined %}
+log.dir={{ emq_config[item].log_dir }}
+{% endif -%}
+{% if emq_config[item].log_file is defined %}
+log.file={{ emq_config[item].log_file }}
+{% endif -%}
+{% if emq_config[item].log_chars_limit is defined %}
+log.chars_limit={{ emq_config[item].log_chars_limit }}
+{% endif -%}
+{% if emq_config[item].log_rotation is defined %}
+log.rotation={{ emq_config[item].log_rotation }}
+{% endif -%}
+{% if emq_config[item].log_rotation_size is defined %}
+log.rotation.size={{ emq_config[item].log_rotation_size }}
+{% endif -%}
+{% if emq_config[item].log_rotation_count is defined %}
+log.rotation.count={{ emq_config[item].log_rotation_count }}
+{% endif -%}
+{% if emq_config[item].log_info_file is defined %}
+log.info.file={{ emq_config[item].log_info_file }}
+{% endif -%}
+{% if emq_config[item].log_error_file is defined %}
+log.error.file={{ emq_config[item].log_error_file }}
+{% endif -%}
+{% if emq_config[item].log_sync_mode_qlen is defined %}
+log.sync_mode_qlen={{ emq_config[item].log_sync_mode_qlen }}
+{% endif -%}
+{% if emq_config[item].log_drop_mode_qlen is defined %}
+log.drop_mode_qlen={{ emq_config[item].log_drop_mode_qlen }}
+{% endif -%}
+{% if emq_config[item].log_flush_qlen is defined %}
+log.flush_qlen={{ emq_config[item].log_flush_qlen }}
+{% endif -%}
+{% if emq_config[item].log_overload_kill is defined %}
+log.overload_kill={{ emq_config[item].log_overload_kill }}
+{% endif -%}
+{% if emq_config[item].log_overload_kill_qlen is defined %}
+log.overload_kill_qlen={{ emq_config[item].log_overload_kill_qlen }}
+{% endif -%}
+{% if emq_config[item].log_overload_kill_mem_size is defined %}
+log.overload_kill_mem_size={{ emq_config[item].log_overload_kill_mem_size }}
+{% endif -%}
+{% if emq_config[item].log_overload_kill_restart_after is defined %}
+log.overload_kill_restart_after={{ emq_config[item].log_overload_kill_restart_after }}
+{% endif -%}
+{% if emq_config[item].log_burst_limit is defined %}
+log.burst_limit={{ emq_config[item].log_burst_limit }}
+{% endif -%}
+#
+##--------------------------------------------------------------------
+## Authentication/Access Control
+##--------------------------------------------------------------------
+#
+{% if emq_config[item].allow_anonymous is defined %}
+allow_anonymous={{ emq_config[item].allow_anonymous }}
+{% endif -%}
+{% if emq_config[item].acl_nomatch is defined %}
+acl_nomatch={{ emq_config[item].acl_nomatch }}
+{% endif -%}
+{% if emq_config[item].acl_file is defined %}
+acl_file={{ emq_config[item].acl_file }}
+{% endif -%}
+{% if emq_config[item].enable_acl_cache is defined %}
+enable_acl_cache={{ emq_config[item].enable_acl_cache }}
+{% endif -%}
+{% if emq_config[item].acl_cache_max_size is defined %}
+acl_cache_max_size={{ emq_config[item].acl_cache_max_size }}
+{% endif -%}
+{% if emq_config[item].acl_cache_ttl is defined %}
+acl_cache_ttl={{ emq_config[item].acl_cache_ttl }}
+{% endif -%}
+{% if emq_config[item].acl_deny_action is defined %}
+acl_deny_action={{ emq_config[item].acl_deny_action }}
+{% endif -%}
+{% if emq_config[item].flapping_detect_policy is defined %}
+flapping_detect_policy={{ emq_config[item].flapping_detect_policy }}
+{% endif -%}
+#
+##--------------------------------------------------------------------
+## MQTT Protocol
+##--------------------------------------------------------------------
+#
+{% if emq_config[item].mqtt_max_packet_size is defined %}
+mqtt.max_packet_size={{ emq_config[item].mqtt_max_packet_size }}
+{% endif -%}
+{% if emq_config[item].mqtt_max_clientid_len is defined %}
+mqtt.max_clientid_len={{ emq_config[item].mqtt_max_clientid_len }}
+{% endif -%}
+{% if emq_config[item].mqtt_max_topic_levels is defined %}
+mqtt.max_topic_levels={{ emq_config[item].mqtt_max_topic_levels }}
+{% endif -%}
+{% if emq_config[item].mqtt_max_qos_allowed is defined %}
+mqtt.max_qos_allowed={{ emq_config[item].mqtt_max_qos_allowed }}
+{% endif -%}
+{% if emq_config[item].mqtt_max_topic_alias is defined %}
+mqtt.max_topic_alias={{ emq_config[item].mqtt_max_topic_alias }}
+{% endif -%}
+{% if emq_config[item].mqtt_retain_available is defined %}
+mqtt.retain_available={{ emq_config[item].mqtt_retain_available }}
+{% endif -%}
+{% if emq_config[item].mqtt_wildcard_subscription is defined %}
+mqtt.wildcard_subscription={{ emq_config[item].mqtt_wildcard_subscription }}
+{% endif -%}
+{% if emq_config[item].mqtt_shared_subscription is defined %}
+mqtt.shared_subscription={{ emq_config[item].mqtt_shared_subscription }}
+{% endif -%}
+{% if emq_config[item].mqtt_ignore_loop_deliver is defined %}
+mqtt.ignore_loop_deliver={{ emq_config[item].mqtt_ignore_loop_deliver }}
+{% endif -%}
+{% if emq_config[item].mqtt_strict_mode is defined %}
+mqtt.strict_mode={{ emq_config[item].mqtt_strict_mode }}
+{% endif -%}
+{% if emq_config[item].mqtt_response_information is defined %}
+mqtt.response_information={{ emq_config[item].mqtt_response_information }}
+{% endif -%}
+#
+##--------------------------------------------------------------------
+## Zones
+##--------------------------------------------------------------------
+#
+{% if emq_config[item].zone_external_idle_timeout is defined %}
+zone.external.idle_timeout={{ emq_config[item].zone_external_idle_timeout }}
+{% endif -%}
+{% if emq_config[item].zone_external_enable_acl is defined %}
+zone.external.enable_acl={{ emq_config[item].zone_external_enable_acl }}
+{% endif -%}
+{% if emq_config[item].zone_external_enable_ban is defined %}
+zone.external.enable_ban={{ emq_config[item].zone_external_enable_ban }}
+{% endif -%}
+{% if emq_config[item].zone_external_enable_stats is defined %}
+zone.external.enable_stats={{ emq_config[item].zone_external_enable_stats }}
+{% endif -%}
+{% if emq_config[item].zone_external_acl_deny_action is defined %}
+zone.external.acl_deny_action={{ emq_config[item].zone_external_acl_deny_action }}
+{% endif -%}
+{% if emq_config[item].zone_external_force_gc_policy is defined %}
+zone.external.force_gc_policy={{ emq_config[item].zone_external_force_gc_policy }}
+{% endif -%}
+{% if emq_config[item].zone_external_force_shutdown_policy is defined %}
+zone.external.force_shutdown_policy={{ emq_config[item].zone_external_force_shutdown_policy }}
+{% endif -%}
+{% if emq_config[item].zone_external_max_packet_size is defined %}
+zone.external.max_packet_size={{ emq_config[item].zone_external_max_packet_size }}
+{% endif -%}
+{% if emq_config[item].zone_external_max_clientid_len is defined %}
+zone.external.max_clientid_len={{ emq_config[item].zone_external_max_clientid_len }}
+{% endif -%}
+{% if emq_config[item].zone_external_max_topic_levels is defined %}
+zone.external.max_topic_levels={{ emq_config[item].zone_external_max_topic_levels }}
+{% endif -%}
+{% if emq_config[item].zone_external_max_qos_allowed is defined %}
+zone.external.max_qos_allowed={{ emq_config[item].zone_external_max_qos_allowed }}
+{% endif -%}
+{% if emq_config[item].zone_external_max_topic_alias is defined %}
+zone.external.max_topic_alias={{ emq_config[item].zone_external_max_topic_alias }}
+{% endif -%}
+{% if emq_config[item].zone_external_retain_available is defined %}
+zone.external.retain_available={{ emq_config[item].zone_external_retain_available }}
+{% endif -%}
+{% if emq_config[item].zone_external_wildcard_subscription is defined %}
+zone.external.wildcard_subscription={{ emq_config[item].zone_external_wildcard_subscription }}
+{% endif -%}
+{% if emq_config[item].zone_external_shared_subscription is defined %}
+zone.external.shared_subscription={{ emq_config[item].zone_external_shared_subscription }}
+{% endif -%}
+{% if emq_config[item].zone_external_server_keepalive is defined %}
+zone.external.server_keepalive={{ emq_config[item].zone_external_server_keepalive }}
+{% endif -%}
+{% if emq_config[item].zone_external_keepalive_backoff is defined %}
+zone.external.keepalive_backoff={{ emq_config[item].zone_external_keepalive_backoff }}
+{% endif -%}
+{% if emq_config[item].zone_external_max_subscriptions is defined %}
+zone.external.max_subscriptions={{ emq_config[item].zone_external_max_subscriptions }}
+{% endif -%}
+{% if emq_config[item].zone_external_upgrade_qos is defined %}
+zone.external.upgrade_qos={{ emq_config[item].zone_external_upgrade_qos }}
+{% endif -%}
+{% if emq_config[item].zone_external_max_inflight is defined %}
+zone.external.max_inflight={{ emq_config[item].zone_external_max_inflight }}
+{% endif -%}
+{% if emq_config[item].zone_external_retry_interval is defined %}
+zone.external.retry_interval={{ emq_config[item].zone_external_retry_interval }}
+{% endif -%}
+{% if emq_config[item].zone_external_max_awaiting_rel is defined %}
+zone.external.max_awaiting_rel={{ emq_config[item].zone_external_max_awaiting_rel }}
+{% endif -%}
+{% if emq_config[item].zone_external_await_rel_timeout is defined %}
+zone.external.await_rel_timeout={{ emq_config[item].zone_external_await_rel_timeout }}
+{% endif -%}
+{% if emq_config[item].zone_external_session_expiry_interval is defined %}
+zone.external.session_expiry_interval={{ emq_config[item].zone_external_session_expiry_interval }}
+{% endif -%}
+{% if emq_config[item].zone_external_max_mqueue_len is defined %}
+zone.external.max_mqueue_len={{ emq_config[item].zone_external_max_mqueue_len }}
+{% endif -%}
+{% if emq_config[item].zone_external_mqueue_priorities is defined %}
+zone.external.mqueue_priorities={{ emq_config[item].zone_external_mqueue_priorities }}
+{% endif -%}
+{% if emq_config[item].zone_external_mqueue_default_priority is defined %}
+zone.external.mqueue_default_priority={{ emq_config[item].zone_external_mqueue_default_priority }}
+{% endif -%}
+{% if emq_config[item].zone_external_mqueue_store_qos0 is defined %}
+zone.external.mqueue_store_qos0={{ emq_config[item].zone_external_mqueue_store_qos0 }}
+{% endif -%}
+{% if emq_config[item].zone_external_enable_flapping_detect is defined %}
+zone.external.enable_flapping_detect={{ emq_config[item].zone_external_enable_flapping_detect }}
+{% endif -%}
+{% if emq_config[item].zone_external_rate_limit_conn_messages_in is defined %}
+zone.external.rate_limit.conn_messages_in={{ emq_config[item].zone_external_rate_limit_conn_messages_in }}
+{% endif -%}
+{% if emq_config[item].zone_external_rate_limit_conn_bytes_in is defined %}
+zone.external.rate_limit.conn_bytes_in={{ emq_config[item].zone_external_rate_limit_conn_bytes_in }}
+{% endif -%}
+{% if emq_config[item].zone_external_quota_conn_messages_routing is defined %}
+zone.external.quota.conn_messages_routing={{ emq_config[item].zone_external_quota_conn_messages_routing }}
+{% endif -%}
+{% if emq_config[item].zone_external_quota_overall_messages_routing is defined %}
+zone.external.quota.overall_messages_routing={{ emq_config[item].zone_external_quota_overall_messages_routing }}
+{% endif -%}
+{% if emq_config[item].zone_external_mountpoint is defined %}
+zone.external.mountpoint={{ emq_config[item].zone_external_mountpoint }}
+{% endif -%}
+{% if emq_config[item].zone_external_use_username_as_clientid is defined %}
+zone.external.use_username_as_clientid={{ emq_config[item].zone_external_use_username_as_clientid }}
+{% endif -%}
+{% if emq_config[item].zone_external_ignore_loop_deliver is defined %}
+zone.external.ignore_loop_deliver={{ emq_config[item].zone_external_ignore_loop_deliver }}
+{% endif -%}
+{% if emq_config[item].zone_external_strict_mode is defined %}
+zone.external.strict_mode={{ emq_config[item].zone_external_strict_mode }}
+{% endif -%}
+{% if emq_config[item].zone_external_response_information is defined %}
+zone.external.response_information={{ emq_config[item].zone_external_response_information }}
+{% endif -%}
+{% if emq_config[item].zone_internal_allow_anonymous is defined %}
+zone.internal.allow_anonymous={{ emq_config[item].zone_internal_allow_anonymous }}
+{% endif -%}
+{% if emq_config[item].zone_internal_enable_stats is defined %}
+zone.internal.enable_stats={{ emq_config[item].zone_internal_enable_stats }}
+{% endif -%}
+{% if emq_config[item].zone_internal_enable_acl is defined %}
+zone.internal.enable_acl={{ emq_config[item].zone_internal_enable_acl }}
+{% endif -%}
+{% if emq_config[item].zone_internal_acl_deny_action is defined %}
+zone.internal.acl_deny_action={{ emq_config[item].zone_internal_acl_deny_action }}
+{% endif -%}
+{% if emq_config[item].zone_internal_force_gc_policy is defined %}
+zone.internal.force_gc_policy={{ emq_config[item].zone_internal_force_gc_policy }}
+{% endif -%}
+{% if emq_config[item].zone_internal_wildcard_subscription is defined %}
+zone.internal.wildcard_subscription={{ emq_config[item].zone_internal_wildcard_subscription }}
+{% endif -%}
+{% if emq_config[item].zone_internal_shared_subscription is defined %}
+zone.internal.shared_subscription={{ emq_config[item].zone_internal_shared_subscription }}
+{% endif -%}
+{% if emq_config[item].zone_internal_max_subscriptions is defined %}
+zone.internal.max_subscriptions={{ emq_config[item].zone_internal_max_subscriptions }}
+{% endif -%}
+{% if emq_config[item].zone_internal_max_inflight is defined %}
+zone.internal.max_inflight={{ emq_config[item].zone_internal_max_inflight }}
+{% endif -%}
+{% if emq_config[item].zone_internal_max_awaiting_rel is defined %}
+zone.internal.max_awaiting_rel={{ emq_config[item].zone_internal_max_awaiting_rel }}
+{% endif -%}
+{% if emq_config[item].zone_internal_max_mqueue_len is defined %}
+zone.internal.max_mqueue_len={{ emq_config[item].zone_internal_max_mqueue_len }}
+{% endif -%}
+{% if emq_config[item].zone_internal_mqueue_store_qos0 is defined %}
+zone.internal.mqueue_store_qos0={{ emq_config[item].zone_internal_mqueue_store_qos0 }}
+{% endif -%}
+{% if emq_config[item].zone_internal_enable_flapping_detect is defined %}
+zone.internal.enable_flapping_detect={{ emq_config[item].zone_internal_enable_flapping_detect }}
+{% endif -%}
+{% if emq_config[item].zone_internal_force_shutdown_policy is defined %}
+zone.internal.force_shutdown_policy={{ emq_config[item].zone_internal_force_shutdown_policy }}
+{% endif -%}
+{% if emq_config[item].zone_internal_mountpoint is defined %}
+zone.internal.mountpoint={{ emq_config[item].zone_internal_mountpoint }}
+{% endif -%}
+{% if emq_config[item].zone_internal_ignore_loop_deliver is defined %}
+zone.internal.ignore_loop_deliver={{ emq_config[item].zone_internal_ignore_loop_deliver }}
+{% endif -%}
+{% if emq_config[item].zone_internal_strict_mode is defined %}
+zone.internal.strict_mode={{ emq_config[item].zone_internal_strict_mode }}
+{% endif -%}
+{% if emq_config[item].zone_internal_response_information is defined %}
+zone.internal.response_information={{ emq_config[item].zone_internal_response_information }}
+{% endif -%}
+{% if emq_config[item].zone_internal_bypass_auth_plugins is defined %}
+zone.internal.bypass_auth_plugins={{ emq_config[item].zone_internal_bypass_auth_plugins }}
+{% endif -%}
+#
+##--------------------------------------------------------------------
+## Listeners
+##--------------------------------------------------------------------
+#
+{% if emq_config[item].listener_tcp_external is defined %}
+listener.tcp.external={{ emq_config[item].listener_tcp_external }}
+{% endif -%}
+{% if emq_config[item].listener_tcp_external_acceptors is defined %}
+listener.tcp.external.acceptors={{ emq_config[item].listener_tcp_external_acceptors }}
+{% endif -%}
+{% if emq_config[item].listener_tcp_external_max_connections is defined %}
+listener.tcp.external.max_connections={{ emq_config[item].listener_tcp_external_max_connections }}
+{% endif -%}
+{% if emq_config[item].listener_tcp_external_max_conn_rate is defined %}
+listener.tcp.external.max_conn_rate={{ emq_config[item].listener_tcp_external_max_conn_rate }}
+{% endif -%}
+{% if emq_config[item].listener_tcp_external_active_n is defined %}
+listener.tcp.external.active_n={{ emq_config[item].listener_tcp_external_active_n }}
+{% endif -%}
+{% if emq_config[item].listener_tcp_external_zone is defined %}
+listener.tcp.external.zone={{ emq_config[item].listener_tcp_external_zone }}
+{% endif -%}
+{% if emq_config[item].listener_tcp_external_access_1 is defined %}
+listener.tcp.external.access.1={{ emq_config[item].listener_tcp_external_access_1 }}
+{% endif -%}
+{% if emq_config[item].listener_tcp_external_proxy_protocol is defined %}
+listener.tcp.external.proxy_protocol={{ emq_config[item].listener_tcp_external_proxy_protocol }}
+{% endif -%}
+{% if emq_config[item].listener_tcp_external_proxy_protocol_timeout is defined %}
+listener.tcp.external.proxy_protocol_timeout={{ emq_config[item].listener_tcp_external_proxy_protocol_timeout }}
+{% endif -%}
+{% if emq_config[item].listener_tcp_external_peer_cert_as_username is defined %}
+listener.tcp.external.peer_cert_as_username={{ emq_config[item].listener_tcp_external_peer_cert_as_username }}
+{% endif -%}
+{% if emq_config[item].listener_tcp_external_backlog is defined %}
+listener.tcp.external.backlog={{ emq_config[item].listener_tcp_external_backlog }}
+{% endif -%}
+{% if emq_config[item].listener_tcp_external_send_timeout is defined %}
+listener.tcp.external.send_timeout={{ emq_config[item].listener_tcp_external_send_timeout }}
+{% endif -%}
+{% if emq_config[item].listener_tcp_external_send_timeout_close is defined %}
+listener.tcp.external.send_timeout_close={{ emq_config[item].listener_tcp_external_send_timeout_close }}
+{% endif -%}
+{% if emq_config[item].listener_tcp_external_recbuf is defined %}
+listener.tcp.external.recbuf={{ emq_config[item].listener_tcp_external_recbuf }}
+{% endif -%}
+{% if emq_config[item].listener_tcp_external_sndbuf is defined %}
+listener.tcp.external.sndbuf={{ emq_config[item].listener_tcp_external_sndbuf }}
+{% endif -%}
+{% if emq_config[item].listener_tcp_external_buffer is defined %}
+listener.tcp.external.buffer={{ emq_config[item].listener_tcp_external_buffer }}
+{% endif -%}
+{% if emq_config[item].listener_tcp_external_tune_buffer is defined %}
+listener.tcp.external.tune_buffer={{ emq_config[item].listener_tcp_external_tune_buffer }}
+{% endif -%}
+{% if emq_config[item].listener_tcp_external_nodelay is defined %}
+listener.tcp.external.nodelay={{ emq_config[item].listener_tcp_external_nodelay }}
+{% endif -%}
+{% if emq_config[item].listener_tcp_external_reuseaddr is defined %}
+listener.tcp.external.reuseaddr={{ emq_config[item].listener_tcp_external_reuseaddr }}
+{% endif -%}
+{% if emq_config[item].listener_tcp_internal is defined %}
+listener.tcp.internal={{ emq_config[item].listener_tcp_internal }}
+{% endif -%}
+{% if emq_config[item].listener_tcp_internal_acceptors is defined %}
+listener.tcp.internal.acceptors={{ emq_config[item].listener_tcp_internal_acceptors }}
+{% endif -%}
+{% if emq_config[item].listener_tcp_internal_max_connections is defined %}
+listener.tcp.internal.max_connections={{ emq_config[item].listener_tcp_internal_max_connections }}
+{% endif -%}
+{% if emq_config[item].listener_tcp_internal_max_conn_rate is defined %}
+listener.tcp.internal.max_conn_rate={{ emq_config[item].listener_tcp_internal_max_conn_rate }}
+{% endif -%}
+{% if emq_config[item].listener_tcp_internal_active_n is defined %}
+listener.tcp.internal.active_n={{ emq_config[item].listener_tcp_internal_active_n }}
+{% endif -%}
+{% if emq_config[item].listener_tcp_internal_zone is defined %}
+listener.tcp.internal.zone={{ emq_config[item].listener_tcp_internal_zone }}
+{% endif -%}
+{% if emq_config[item].listener_tcp_internal_backlog is defined %}
+listener.tcp.internal.backlog={{ emq_config[item].listener_tcp_internal_backlog }}
+{% endif -%}
+{% if emq_config[item].listener_tcp_internal_send_timeout is defined %}
+listener.tcp.internal.send_timeout={{ emq_config[item].listener_tcp_internal_send_timeout }}
+{% endif -%}
+{% if emq_config[item].listener_tcp_internal_send_timeout_close is defined %}
+listener.tcp.internal.send_timeout_close={{ emq_config[item].listener_tcp_internal_send_timeout_close }}
+{% endif -%}
+{% if emq_config[item].listener_tcp_internal_recbuf is defined %}
+listener.tcp.internal.recbuf={{ emq_config[item].listener_tcp_internal_recbuf }}
+{% endif -%}
+{% if emq_config[item].listener_tcp_internal_sndbuf is defined %}
+listener.tcp.internal.sndbuf={{ emq_config[item].listener_tcp_internal_sndbuf }}
+{% endif -%}
+{% if emq_config[item].listener_tcp_internal_buffer is defined %}
+listener.tcp.internal.buffer={{ emq_config[item].listener_tcp_internal_buffer }}
+{% endif -%}
+{% if emq_config[item].listener_tcp_internal_tune_buffer is defined %}
+listener.tcp.internal.tune_buffer={{ emq_config[item].listener_tcp_internal_tune_buffer }}
+{% endif -%}
+{% if emq_config[item].listener_tcp_internal_nodelay is defined %}
+listener.tcp.internal.nodelay={{ emq_config[item].listener_tcp_internal_nodelay }}
+{% endif -%}
+{% if emq_config[item].listener_tcp_internal_reuseaddr is defined %}
+listener.tcp.internal.reuseaddr={{ emq_config[item].listener_tcp_internal_reuseaddr }}
+{% endif -%}
+{% if emq_config[item].listener_ssl_external is defined %}
+listener.ssl.external={{ emq_config[item].listener_ssl_external }}
+{% endif -%}
+{% if emq_config[item].listener_ssl_external_acceptors is defined %}
+listener.ssl.external.acceptors={{ emq_config[item].listener_ssl_external_acceptors }}
+{% endif -%}
+{% if emq_config[item].listener_ssl_external_max_connections is defined %}
+listener.ssl.external.max_connections={{ emq_config[item].listener_ssl_external_max_connections }}
+{% endif -%}
+{% if emq_config[item].listener_ssl_external_max_conn_rate is defined %}
+listener.ssl.external.max_conn_rate={{ emq_config[item].listener_ssl_external_max_conn_rate }}
+{% endif -%}
+{% if emq_config[item].listener_ssl_external_active_n is defined %}
+listener.ssl.external.active_n={{ emq_config[item].listener_ssl_external_active_n }}
+{% endif -%}
+{% if emq_config[item].listener_ssl_external_zone is defined %}
+listener.ssl.external.zone={{ emq_config[item].listener_ssl_external_zone }}
+{% endif -%}
+{% if emq_config[item].listener_ssl_external_access_1 is defined %}
+listener.ssl.external.access.1={{ emq_config[item].listener_ssl_external_access_1 }}
+{% endif -%}
+{% if emq_config[item].listener_ssl_external_proxy_protocol is defined %}
+listener.ssl.external.proxy_protocol={{ emq_config[item].listener_ssl_external_proxy_protocol }}
+{% endif -%}
+{% if emq_config[item].listener_ssl_external_proxy_protocol_timeout is defined %}
+listener.ssl.external.proxy_protocol_timeout={{ emq_config[item].listener_ssl_external_proxy_protocol_timeout }}
+{% endif -%}
+{% if emq_config[item].listener_ssl_external_tls_versions is defined %}
+listener.ssl.external.tls_versions={{ emq_config[item].listener_ssl_external_tls_versions }}
+{% endif -%}
+{% if emq_config[item].listener_ssl_external_handshake_timeout is defined %}
+listener.ssl.external.handshake_timeout={{ emq_config[item].listener_ssl_external_handshake_timeout }}
+{% endif -%}
+{% if emq_config[item].listener_ssl_external_keyfile is defined %}
+listener.ssl.external.keyfile={{ emq_config[item].listener_ssl_external_keyfile }}
+{% endif -%}
+{% if emq_config[item].listener_ssl_external_certfile is defined %}
+listener.ssl.external.certfile={{ emq_config[item].listener_ssl_external_certfile }}
+{% endif -%}
+{% if emq_config[item].listener_ssl_external_cacertfile is defined %}
+listener.ssl.external.cacertfile={{ emq_config[item].listener_ssl_external_cacertfile }}
+{% endif -%}
+{% if emq_config[item].listener_ssl_external_dhfile is defined %}
+listener.ssl.external.dhfile={{ emq_config[item].listener_ssl_external_dhfile }}
+{% endif -%}
+{% if emq_config[item].listener_ssl_external_verify is defined %}
+listener.ssl.external.verify={{ emq_config[item].listener_ssl_external_verify }}
+{% endif -%}
+{% if emq_config[item].listener_ssl_external_fail_if_no_peer_cert is defined %}
+listener.ssl.external.fail_if_no_peer_cert={{ emq_config[item].listener_ssl_external_fail_if_no_peer_cert }}
+{% endif -%}
+{% if emq_config[item].listener_ssl_external_ciphers is defined %}
+listener.ssl.external.ciphers={{ emq_config[item].listener_ssl_external_ciphers }}
+{% endif -%}
+{% if emq_config[item].listener_ssl_external_psk_ciphers is defined %}
+listener.ssl.external.psk_ciphers={{ emq_config[item].listener_ssl_external_psk_ciphers }}
+{% endif -%}
+{% if emq_config[item].listener_ssl_external_secure_renegotiate is defined %}
+listener.ssl.external.secure_renegotiate={{ emq_config[item].listener_ssl_external_secure_renegotiate }}
+{% endif -%}
+{% if emq_config[item].listener_ssl_external_reuse_sessions is defined %}
+listener.ssl.external.reuse_sessions={{ emq_config[item].listener_ssl_external_reuse_sessions }}
+{% endif -%}
+{% if emq_config[item].listener_ssl_external_honor_cipher_order is defined %}
+listener.ssl.external.honor_cipher_order={{ emq_config[item].listener_ssl_external_honor_cipher_order }}
+{% endif -%}
+{% if emq_config[item].listener_ssl_external_peer_cert_as_username is defined %}
+listener.ssl.external.peer_cert_as_username={{ emq_config[item].listener_ssl_external_peer_cert_as_username }}
+{% endif -%}
+{% if emq_config[item].listener_ssl_external_backlog is defined %}
+listener.ssl.external.backlog={{ emq_config[item].listener_ssl_external_backlog }}
+{% endif -%}
+{% if emq_config[item].listener_ssl_external_send_timeout is defined %}
+listener.ssl.external.send_timeout={{ emq_config[item].listener_ssl_external_send_timeout }}
+{% endif -%}
+{% if emq_config[item].listener_ssl_external_send_timeout_close is defined %}
+listener.ssl.external.send_timeout_close={{ emq_config[item].listener_ssl_external_send_timeout_close }}
+{% endif -%}
+{% if emq_config[item].listener_ssl_external_recbuf is defined %}
+listener.ssl.external.recbuf={{ emq_config[item].listener_ssl_external_recbuf }}
+{% endif -%}
+{% if emq_config[item].listener_ssl_external_sndbuf is defined %}
+listener.ssl.external.sndbuf={{ emq_config[item].listener_ssl_external_sndbuf }}
+{% endif -%}
+{% if emq_config[item].listener_ssl_external_buffer is defined %}
+listener.ssl.external.buffer={{ emq_config[item].listener_ssl_external_buffer }}
+{% endif -%}
+{% if emq_config[item].listener_ssl_external_tune_buffer is defined %}
+listener.ssl.external.tune_buffer={{ emq_config[item].listener_ssl_external_tune_buffer }}
+{% endif -%}
+{% if emq_config[item].listener_ssl_external_nodelay is defined %}
+listener.ssl.external.nodelay={{ emq_config[item].listener_ssl_external_nodelay }}
+{% endif -%}
+{% if emq_config[item].listener_ssl_external_reuseaddr is defined %}
+listener.ssl.external.reuseaddr={{ emq_config[item].listener_ssl_external_reuseaddr }}
+{% endif -%}
+{% if emq_config[item].listener_ws_external is defined %}
+listener.ws.external={{ emq_config[item].listener_ws_external }}
+{% endif -%}
+{% if emq_config[item].listener_ws_external_mqtt_path is defined %}
+listener.ws.external.mqtt_path={{ emq_config[item].listener_ws_external_mqtt_path }}
+{% endif -%}
+{% if emq_config[item].listener_ws_external_acceptors is defined %}
+listener.ws.external.acceptors={{ emq_config[item].listener_ws_external_acceptors }}
+{% endif -%}
+{% if emq_config[item].listener_ws_external_max_connections is defined %}
+listener.ws.external.max_connections={{ emq_config[item].listener_ws_external_max_connections }}
+{% endif -%}
+{% if emq_config[item].listener_ws_external_max_conn_rate is defined %}
+listener.ws.external.max_conn_rate={{ emq_config[item].listener_ws_external_max_conn_rate }}
+{% endif -%}
+{% if emq_config[item].listener_ws_external_active_n is defined %}
+listener.ws.external.active_n={{ emq_config[item].listener_ws_external_active_n }}
+{% endif -%}
+{% if emq_config[item].listener_ws_external_zone is defined %}
+listener.ws.external.zone={{ emq_config[item].listener_ws_external_zone }}
+{% endif -%}
+{% if emq_config[item].listener_ws_external_access_1 is defined %}
+listener.ws.external.access.1={{ emq_config[item].listener_ws_external_access_1 }}
+{% endif -%}
+{% if emq_config[item].listener_ws_external_verify_protocol_header is defined %}
+listener.ws.external.verify_protocol_header={{ emq_config[item].listener_ws_external_verify_protocol_header }}
+{% endif -%}
+{% if emq_config[item].listener_ws_external_proxy_protocol is defined %}
+listener.ws.external.proxy_protocol={{ emq_config[item].listener_ws_external_proxy_protocol }}
+{% endif -%}
+{% if emq_config[item].listener_ws_external_proxy_protocol_timeout is defined %}
+listener.ws.external.proxy_protocol_timeout={{ emq_config[item].listener_ws_external_proxy_protocol_timeout }}
+{% endif -%}
+{% if emq_config[item].listener_ws_external_backlog is defined %}
+listener.ws.external.backlog={{ emq_config[item].listener_ws_external_backlog }}
+{% endif -%}
+{% if emq_config[item].listener_ws_external_send_timeout is defined %}
+listener.ws.external.send_timeout={{ emq_config[item].listener_ws_external_send_timeout }}
+{% endif -%}
+{% if emq_config[item].listener_ws_external_send_timeout_close is defined %}
+listener.ws.external.send_timeout_close={{ emq_config[item].listener_ws_external_send_timeout_close }}
+{% endif -%}
+{% if emq_config[item].listener_ws_external_recbuf is defined %}
+listener.ws.external.recbuf={{ emq_config[item].listener_ws_external_recbuf }}
+{% endif -%}
+{% if emq_config[item].listener_ws_external_sndbuf is defined %}
+listener.ws.external.sndbuf={{ emq_config[item].listener_ws_external_sndbuf }}
+{% endif -%}
+{% if emq_config[item].listener_ws_external_buffer is defined %}
+listener.ws.external.buffer={{ emq_config[item].listener_ws_external_buffer }}
+{% endif -%}
+{% if emq_config[item].listener_ws_external_tune_buffer is defined %}
+listener.ws.external.tune_buffer={{ emq_config[item].listener_ws_external_tune_buffer }}
+{% endif -%}
+{% if emq_config[item].listener_ws_external_nodelay is defined %}
+listener.ws.external.nodelay={{ emq_config[item].listener_ws_external_nodelay }}
+{% endif -%}
+{% if emq_config[item].listener_ws_external_compress is defined %}
+listener.ws.external.compress={{ emq_config[item].listener_ws_external_compress }}
+{% endif -%}
+{% if emq_config[item].listener_ws_external_deflate_opts_level is defined %}
+listener.ws.external.deflate_opts.level={{ emq_config[item].listener_ws_external_deflate_opts_level }}
+{% endif -%}
+{% if emq_config[item].listener_ws_external_deflate_opts_mem_level is defined %}
+listener.ws.external.deflate_opts.mem_level={{ emq_config[item].listener_ws_external_deflate_opts_mem_level }}
+{% endif -%}
+{% if emq_config[item].listener_ws_external_deflate_opts_strategy is defined %}
+listener.ws.external.deflate_opts.strategy={{ emq_config[item].listener_ws_external_deflate_opts_strategy }}
+{% endif -%}
+{% if emq_config[item].listener_ws_external_deflate_opts_server_context_takeover is defined %}
+listener.ws.external.deflate_opts.server_context_takeover={{ emq_config[item].listener_ws_external_deflate_opts_server_context_takeover }}
+{% endif -%}
+{% if emq_config[item].listener_ws_external_deflate_opts_client_context_takeover is defined %}
+listener.ws.external.deflate_opts.client_context_takeover={{ emq_config[item].listener_ws_external_deflate_opts_client_context_takeover }}
+{% endif -%}
+{% if emq_config[item].listener_ws_external_deflate_opts_server_max_window_bits is defined %}
+listener.ws.external.deflate_opts.server_max_window_bits={{ emq_config[item].listener_ws_external_deflate_opts_server_max_window_bits }}
+{% endif -%}
+{% if emq_config[item].listener_ws_external_deflate_opts_client_max_window_bits is defined %}
+listener.ws.external.deflate_opts.client_max_window_bits={{ emq_config[item].listener_ws_external_deflate_opts_client_max_window_bits }}
+{% endif -%}
+{% if emq_config[item].listener_ws_external_idle_timeout is defined %}
+listener.ws.external.idle_timeout={{ emq_config[item].listener_ws_external_idle_timeout }}
+{% endif -%}
+{% if emq_config[item].listener_ws_external_max_frame_size is defined %}
+listener.ws.external.max_frame_size={{ emq_config[item].listener_ws_external_max_frame_size }}
+{% endif -%}
+{% if emq_config[item].listener_ws_external_mqtt_piggyback is defined %}
+listener.ws.external.mqtt_piggyback={{ emq_config[item].listener_ws_external_mqtt_piggyback }}
+{% endif -%}
+{% if emq_config[item].listener_wss_external is defined %}
+listener.wss.external={{ emq_config[item].listener_wss_external }}
+{% endif -%}
+{% if emq_config[item].listener_wss_external_mqtt_path is defined %}
+listener.wss.external.mqtt_path={{ emq_config[item].listener_wss_external_mqtt_path }}
+{% endif -%}
+{% if emq_config[item].listener_wss_external_acceptors is defined %}
+listener.wss.external.acceptors={{ emq_config[item].listener_wss_external_acceptors }}
+{% endif -%}
+{% if emq_config[item].listener_wss_external_max_connections is defined %}
+listener.wss.external.max_connections={{ emq_config[item].listener_wss_external_max_connections }}
+{% endif -%}
+{% if emq_config[item].listener_wss_external_max_conn_rate is defined %}
+listener.wss.external.max_conn_rate={{ emq_config[item].listener_wss_external_max_conn_rate }}
+{% endif -%}
+{% if emq_config[item].listener_wss_external_active_n is defined %}
+listener.wss.external.active_n={{ emq_config[item].listener_wss_external_active_n }}
+{% endif -%}
+{% if emq_config[item].listener_wss_external_zone is defined %}
+listener.wss.external.zone={{ emq_config[item].listener_wss_external_zone }}
+{% endif -%}
+{% if emq_config[item].listener_wss_external_access_1 is defined %}
+listener.wss.external.access.1={{ emq_config[item].listener_wss_external_access_1 }}
+{% endif -%}
+{% if emq_config[item].listener_wss_external_verify_protocol_header is defined %}
+listener.wss.external.verify_protocol_header={{ emq_config[item].listener_wss_external_verify_protocol_header }}
+{% endif -%}
+{% if emq_config[item].listener_wss_external_proxy_protocol is defined %}
+listener.wss.external.proxy_protocol={{ emq_config[item].listener_wss_external_proxy_protocol }}
+{% endif -%}
+{% if emq_config[item].listener_wss_external_proxy_protocol_timeout is defined %}
+listener.wss.external.proxy_protocol_timeout={{ emq_config[item].listener_wss_external_proxy_protocol_timeout }}
+{% endif -%}
+{% if emq_config[item].listener_wss_external_tls_versions is defined %}
+listener.wss.external.tls_versions={{ emq_config[item].listener_wss_external_tls_versions }}
+{% endif -%}
+{% if emq_config[item].listener_wss_external_keyfile is defined %}
+listener.wss.external.keyfile={{ emq_config[item].listener_wss_external_keyfile }}
+{% endif -%}
+{% if emq_config[item].listener_wss_external_certfile is defined %}
+listener.wss.external.certfile={{ emq_config[item].listener_wss_external_certfile }}
+{% endif -%}
+{% if emq_config[item].listener_wss_external_cacertfile is defined %}
+listener.wss.external.cacertfile={{ emq_config[item].listener_wss_external_cacertfile }}
+{% endif -%}
+{% if emq_config[item].listener_ssl_external_dhfile is defined %}
+listener.ssl.external.dhfile={{ emq_config[item].listener_ssl_external_dhfile }}
+{% endif -%}
+{% if emq_config[item].listener_wss_external_verify is defined %}
+listener.wss.external.verify={{ emq_config[item].listener_wss_external_verify }}
+{% endif -%}
+{% if emq_config[item].listener_wss_external_fail_if_no_peer_cert is defined %}
+listener.wss.external.fail_if_no_peer_cert={{ emq_config[item].listener_wss_external_fail_if_no_peer_cert }}
+{% endif -%}
+{% if emq_config[item].listener_wss_external_ciphers is defined %}
+listener.wss.external.ciphers={{ emq_config[item].listener_wss_external_ciphers }}
+{% endif -%}
+{% if emq_config[item].listener_wss_external_psk_ciphers is defined %}
+listener.wss.external.psk_ciphers={{ emq_config[item].listener_wss_external_psk_ciphers }}
+{% endif -%}
+{% if emq_config[item].listener_wss_external_secure_renegotiate is defined %}
+listener.wss.external.secure_renegotiate={{ emq_config[item].listener_wss_external_secure_renegotiate }}
+{% endif -%}
+{% if emq_config[item].listener_wss_external_reuse_sessions is defined %}
+listener.wss.external.reuse_sessions={{ emq_config[item].listener_wss_external_reuse_sessions }}
+{% endif -%}
+{% if emq_config[item].listener_wss_external_honor_cipher_order is defined %}
+listener.wss.external.honor_cipher_order={{ emq_config[item].listener_wss_external_honor_cipher_order }}
+{% endif -%}
+{% if emq_config[item].listener_wss_external_peer_cert_as_username is defined %}
+listener.wss.external.peer_cert_as_username={{ emq_config[item].listener_wss_external_peer_cert_as_username }}
+{% endif -%}
+{% if emq_config[item].listener_wss_external_backlog is defined %}
+listener.wss.external.backlog={{ emq_config[item].listener_wss_external_backlog }}
+{% endif -%}
+{% if emq_config[item].listener_wss_external_send_timeout is defined %}
+listener.wss.external.send_timeout={{ emq_config[item].listener_wss_external_send_timeout }}
+{% endif -%}
+{% if emq_config[item].listener_wss_external_send_timeout_close is defined %}
+listener.wss.external.send_timeout_close={{ emq_config[item].listener_wss_external_send_timeout_close }}
+{% endif -%}
+{% if emq_config[item].listener_wss_external_recbuf is defined %}
+listener.wss.external.recbuf={{ emq_config[item].listener_wss_external_recbuf }}
+{% endif -%}
+{% if emq_config[item].listener_wss_external_sndbuf is defined %}
+listener.wss.external.sndbuf={{ emq_config[item].listener_wss_external_sndbuf }}
+{% endif -%}
+{% if emq_config[item].listener_wss_external_buffer is defined %}
+listener.wss.external.buffer={{ emq_config[item].listener_wss_external_buffer }}
+{% endif -%}
+{% if emq_config[item].listener_wss_external_nodelay is defined %}
+listener.wss.external.nodelay={{ emq_config[item].listener_wss_external_nodelay }}
+{% endif -%}
+{% if emq_config[item].listener_wss_external_compress is defined %}
+listener.wss.external.compress={{ emq_config[item].listener_wss_external_compress }}
+{% endif -%}
+{% if emq_config[item].listener_wss_external_deflate_opts_level is defined %}
+listener.wss.external.deflate_opts.level={{ emq_config[item].listener_wss_external_deflate_opts_level }}
+{% endif -%}
+{% if emq_config[item].listener_wss_external_deflate_opts_mem_level is defined %}
+listener.wss.external.deflate_opts.mem_level={{ emq_config[item].listener_wss_external_deflate_opts_mem_level }}
+{% endif -%}
+{% if emq_config[item].listener_wss_external_deflate_opts_strategy is defined %}
+listener.wss.external.deflate_opts.strategy={{ emq_config[item].listener_wss_external_deflate_opts_strategy }}
+{% endif -%}
+{% if emq_config[item].listener_wss_external_deflate_opts_server_context_takeover is defined %}
+listener.wss.external.deflate_opts.server_context_takeover={{ emq_config[item].listener_wss_external_deflate_opts_server_context_takeover }}
+{% endif -%}
+{% if emq_config[item].listener_wss_external_deflate_opts_client_context_takeover is defined %}
+listener.wss.external.deflate_opts.client_context_takeover={{ emq_config[item].listener_wss_external_deflate_opts_client_context_takeover }}
+{% endif -%}
+{% if emq_config[item].listener_wss_external_deflate_opts_server_max_window_bits is defined %}
+listener.wss.external.deflate_opts.server_max_window_bits={{ emq_config[item].listener_wss_external_deflate_opts_server_max_window_bits }}
+{% endif -%}
+{% if emq_config[item].listener_wss_external_deflate_opts_client_max_window_bits is defined %}
+listener.wss.external.deflate_opts.client_max_window_bits={{ emq_config[item].listener_wss_external_deflate_opts_client_max_window_bits }}
+{% endif -%}
+{% if emq_config[item].listener_wss_external_idle_timeout is defined %}
+listener.wss.external.idle_timeout={{ emq_config[item].listener_wss_external_idle_timeout }}
+{% endif -%}
+{% if emq_config[item].listener_wss_external_max_frame_size is defined %}
+listener.wss.external.max_frame_size={{ emq_config[item].listener_wss_external_max_frame_size }}
+{% endif -%}
+{% if emq_config[item].listener_wss_external_mqtt_piggyback is defined %}
+listener.wss.external.mqtt_piggyback={{ emq_config[item].listener_wss_external_mqtt_piggyback }}
+{% endif -%}
+#
+##--------------------------------------------------------------------
+## Modules
+##--------------------------------------------------------------------
+#
+{% if emq_config[item].modules_loaded_file is defined %}
+modules.loaded_file={{ emq_config[item].modules_loaded_file }}
+{% endif -%}
+{% if emq_config[item].module_presence_qos is defined %}
+module.presence.qos={{ emq_config[item].module_presence_qos }}
+{% endif -%}
+{% if emq_config[item].module_subscription_1_topic is defined %}
+module.subscription.1.topic={{ emq_config[item].module_subscription_1_topic }}
+{% endif -%}
+{% if emq_config[item].module_subscription_1_qos is defined %}
+module.subscription.1.qos={{ emq_config[item].module_subscription_1_qos }}
+{% endif -%}
+{% if emq_config[item].module_subscription_1_nl is defined %}
+module.subscription.1.nl={{ emq_config[item].module_subscription_1_nl }}
+{% endif -%}
+{% if emq_config[item].module_subscription_1_rap is defined %}
+module.subscription.1.rap={{ emq_config[item].module_subscription_1_rap }}
+{% endif -%}
+{% if emq_config[item].module_subscription_1_rh is defined %}
+module.subscription.1.rh={{ emq_config[item].module_subscription_1_rh }}
+{% endif -%}
+{% if emq_config[item].module_rewrite_pub_rule_1 is defined %}
+module.rewrite.pub.rule.1={{ emq_config[item].module_rewrite_pub_rule_1 }}
+{% endif -%}
+{% if emq_config[item].module_rewrite_sub_rule_1 is defined %}
+module.rewrite.sub.rule.1={{ emq_config[item].module_rewrite_sub_rule_1 }}
+{% endif -%}
+{% if emq_config[item].plugins_etc_dir is defined %}
+plugins.etc_dir={{ emq_config[item].plugins_etc_dir }}
+{% endif -%}
+{% if emq_config[item].plugins_loaded_file is defined %}
+plugins.loaded_file={{ emq_config[item].plugins_loaded_file }}
+{% endif -%}
+{% if emq_config[item].plugins_expand_plugins_dir is defined %}
+plugins.expand_plugins_dir={{ emq_config[item].plugins_expand_plugins_dir }}
+{% endif -%}
+
+
+##--------------------------------------------------------------------
+## Broker
+##--------------------------------------------------------------------
+
+{% if emq_config[item].broker_sys_interval is defined %}
+broker.sys_interval={{ emq_config[item].broker_sys_interval }}
+{% endif -%}
+{% if emq_config[item].broker_sys_heartbeat is defined %}
+broker.sys_heartbeat={{ emq_config[item].broker_sys_heartbeat }}
+{% endif -%}
+{% if emq_config[item].broker_session_locking_strategy is defined %}
+broker.session_locking_strategy={{ emq_config[item].broker_session_locking_strategy }}
+{% endif -%}
+{% if emq_config[item].broker_shared_subscription_strategy is defined %}
+broker.shared_subscription_strategy={{ emq_config[item].broker_shared_subscription_strategy }}
+{% endif -%}
+{% if emq_config[item].broker_shared_dispatch_ack_enabled is defined %}
+broker.shared_dispatch_ack_enabled={{ emq_config[item].broker_shared_dispatch_ack_enabled }}
+{% endif -%}
+{% if emq_config[item].broker_route_batch_clean is defined %}
+broker.route_batch_clean={{ emq_config[item].broker_route_batch_clean }}
+{% endif -%}
+#
+##--------------------------------------------------------------------
+## System Monitor
+##--------------------------------------------------------------------
+#
+{% if emq_config[item].sysmon_long_gc is defined %}
+sysmon.long_gc={{ emq_config[item].sysmon_long_gc }}
+{% endif -%}
+{% if emq_config[item].sysmon_long_schedule is defined %}
+sysmon.long_schedule={{ emq_config[item].sysmon_long_schedule }}
+{% endif -%}
+{% if emq_config[item].sysmon_large_heap is defined %}
+sysmon.large_heap={{ emq_config[item].sysmon_large_heap }}
+{% endif -%}
+{% if emq_config[item].sysmon_busy_port is defined %}
+sysmon.busy_port={{ emq_config[item].sysmon_busy_port }}
+{% endif -%}
+{% if emq_config[item].sysmon_busy_dist_port is defined %}
+sysmon.busy_dist_port={{ emq_config[item].sysmon_busy_dist_port }}
+{% endif -%}
+{% if emq_config[item].os_mon_cpu_check_interval is defined %}
+os_mon.cpu_check_interval={{ emq_config[item].os_mon_cpu_check_interval }}
+{% endif -%}
+{% if emq_config[item].os_mon_cpu_high_watermark is defined %}
+os_mon.cpu_high_watermark={{ emq_config[item].os_mon_cpu_high_watermark }}
+{% endif -%}
+{% if emq_config[item].os_mon_cpu_low_watermark is defined %}
+os_mon.cpu_low_watermark={{ emq_config[item].os_mon_cpu_low_watermark }}
+{% endif -%}
+{% if emq_config[item].os_mon_mem_check_interval is defined %}
+os_mon.mem_check_interval={{ emq_config[item].os_mon_mem_check_interval }}
+{% endif -%}
+{% if emq_config[item].os_mon_sysmem_high_watermark is defined %}
+os_mon.sysmem_high_watermark={{ emq_config[item].os_mon_sysmem_high_watermark }}
+{% endif -%}
+{% if emq_config[item].os_mon_procmem_high_watermark is defined %}
+os_mon.procmem_high_watermark={{ emq_config[item].os_mon_procmem_high_watermark }}
+{% endif -%}
+{% if emq_config[item].vm_mon_check_interval is defined %}
+vm_mon.check_interval={{ emq_config[item].vm_mon_check_interval }}
+{% endif -%}
+{% if emq_config[item].vm_mon_process_high_watermark is defined %}
+vm_mon.process_high_watermark={{ emq_config[item].vm_mon_process_high_watermark }}
+{% endif -%}
+{% if emq_config[item].vm_mon_process_low_watermark is defined %}
+vm_mon.process_low_watermark={{ emq_config[item].vm_mon_process_low_watermark }}
+{% endif -%}
+{% if emq_config[item].alarm_actions is defined %}
+alarm.actions={{ emq_config[item].alarm_actions }}
+{% endif -%}
+{% if emq_config[item].alarm_size_limit is defined %}
+alarm.size_limit={{ emq_config[item].alarm_size_limit }}
+{% endif -%}
+{% if emq_config[item].alarm_validity_period is defined %}
+alarm.validity_period={{ emq_config[item].alarm_validity_period }}
+{% endif -%}
+#
+
+##--------------------------------------------------------------------
+## JWT Auth Plugin
+##--------------------------------------------------------------------
+#
+{% if emq_plugin_auth_jwt[item].auth_jwt_secret is defined %}
+auth.jwt.secret={{ emq_plugin_auth_jwt[item].auth_jwt_secret }}
+{% endif %}
+{% if emq_plugin_auth_jwt[item].auth_jwt_from is defined %}
+auth.jwt.from={{ emq_plugin_auth_jwt[item].auth_jwt_from }}
+{% endif %}
+{% if emq_plugin_auth_jwt[item].auth_jwt_verify_claims is defined %}
+auth.jwt.verify_claims={{ emq_plugin_auth_jwt[item].auth_jwt_verify_claims }}
+{% endif %}
+#
+##--------------------------------------------------------------------
+## LDAP Auth Plugin
+##--------------------------------------------------------------------
+#
+{% if emq_plugin_auth_ldap[item].auth_ldap_servers is defined %}
+auth.ldap.servers={{ emq_plugin_auth_ldap[item].auth_ldap_servers }}
+{% endif %}
+{% if emq_plugin_auth_ldap[item].auth_ldap_port is defined %}
+auth.ldap.port={{ emq_plugin_auth_ldap[item].auth_ldap_port }}
+{% endif %}
+{% if emq_plugin_auth_ldap[item].auth_ldap_pool is defined %}
+auth.ldap.pool={{ emq_plugin_auth_ldap[item].auth_ldap_pool }}
+{% endif %}
+{% if emq_plugin_auth_ldap[item].auth_ldap_bind_dn is defined %}
+auth.ldap.bind_dn={{ emq_plugin_auth_ldap[item].auth_ldap_bind_dn }}
+{% endif %}
+{% if emq_plugin_auth_ldap[item].auth_ldap_bind_password is defined %}
+auth.ldap.bind_password={{ emq_plugin_auth_ldap[item].auth_ldap_bind_password }}
+{% endif %}
+{% if emq_plugin_auth_ldap[item].auth_ldap_timeout is defined %}
+auth.ldap.timeout={{ emq_plugin_auth_ldap[item].auth_ldap_timeout }}
+{% endif %}
+{% if emq_plugin_auth_ldap[item].auth_ldap_device_dn is defined %}
+auth.ldap.device_dn={{ emq_plugin_auth_ldap[item].auth_ldap_device_dn }}
+{% endif %}
+{% if emq_plugin_auth_ldap[item].auth_ldap_match_objectclass is defined %}
+auth.ldap.match_objectclass={{ emq_plugin_auth_ldap[item].auth_ldap_match_objectclass }}
+{% endif %}
+{% if emq_plugin_auth_ldap[item].auth_ldap_username_attributetype is defined %}
+auth.ldap.username.attributetype={{ emq_plugin_auth_ldap[item].auth_ldap_username_attributetype }}
+{% endif %}
+{% if emq_plugin_auth_ldap[item].auth_ldap_password_attributetype is defined %}
+auth.ldap.password.attributetype={{ emq_plugin_auth_ldap[item].auth_ldap_password_attributetype }}
+{% endif %}
+{% if emq_plugin_auth_ldap[item].auth_ldap_ssl is defined %}
+auth.ldap.ssl={{ emq_plugin_auth_ldap[item].auth_ldap_ssl }}
+{% endif %}
+#
+##--------------------------------------------------------------------
+## MongoDB Auth/ACL Plugin
+##--------------------------------------------------------------------
+#
+{% if emq_plugin_auth_mongo[item].auth_mongo_type is defined %}
+auth.mongo.type={{ emq_plugin_auth_mongo[item].auth_mongo_type }}
+{% endif %}
+{% if emq_plugin_auth_mongo[item].auth_mongo_server is defined %}
+auth.mongo.server={{ emq_plugin_auth_mongo[item].auth_mongo_server }}
+{% endif %}
+{% if emq_plugin_auth_mongo[item].auth_mongo_pool is defined %}
+auth.mongo.pool={{ emq_plugin_auth_mongo[item].auth_mongo_pool }}
+{% endif %}
+{% if emq_plugin_auth_mongo[item].auth_mongo_database is defined %}
+auth.mongo.database={{ emq_plugin_auth_mongo[item].auth_mongo_database }}
+{% endif %}
+{% if emq_plugin_auth_mongo[item].auth_mongo_topology_pool_size is defined %}
+auth.mongo.topology.pool_size={{ emq_plugin_auth_mongo[item].auth_mongo_topology_pool_size }}
+{% endif %}
+{% if emq_plugin_auth_mongo[item].auth_mongo_topology_max_overflow is defined %}
+auth.mongo.topology.max_overflow={{ emq_plugin_auth_mongo[item].auth_mongo_topology_max_overflow }}
+{% endif %}
+{% if emq_plugin_auth_mongo[item].auth_mongo_auth_query_collection is defined %}
+auth.mongo.auth_query.collection={{ emq_plugin_auth_mongo[item].auth_mongo_auth_query_collection }}
+{% endif %}
+{% if emq_plugin_auth_mongo[item].auth_mongo_auth_query_password_field is defined %}
+auth.mongo.auth_query.password_field={{ emq_plugin_auth_mongo[item].auth_mongo_auth_query_password_field }}
+{% endif %}
+{% if emq_plugin_auth_mongo[item].auth_mongo_auth_query_password_hash is defined %}
+auth.mongo.auth_query.password_hash={{ emq_plugin_auth_mongo[item].auth_mongo_auth_query_password_hash }}
+{% endif %}
+{% if emq_plugin_auth_mongo[item].auth_mongo_auth_query_password_hash is defined %}
+auth.mongo.auth_query.password_hash={{ emq_plugin_auth_mongo[item].auth_mongo_auth_query_password_hash }}
+{% endif %}
+{% if emq_plugin_auth_mongo[item].auth_mongo_super_query is defined %}
+auth.mongo.super_query={{ emq_plugin_auth_mongo[item].auth_mongo_super_query }}
+{% endif %}
+{% if emq_plugin_auth_mongo[item].auth_mongo_super_query_collection is defined %}
+auth.mongo.super_query.collection={{ emq_plugin_auth_mongo[item].auth_mongo_super_query_collection }}
+{% endif %}
+{% if emq_plugin_auth_mongo[item].auth_mongo_super_query_super_field is defined %}
+auth.mongo.super_query.super_field={{ emq_plugin_auth_mongo[item].auth_mongo_super_query_super_field }}
+{% endif %}
+{% if emq_plugin_auth_mongo[item].auth_mongo_super_query_selector is defined %}
+auth.mongo.super_query.selector={{ emq_plugin_auth_mongo[item].auth_mongo_super_query_selector }}
+{% endif %}
+{% if emq_plugin_auth_mongo[item].auth_mongo_acl_query is defined %}
+auth.mongo.acl_query={{ emq_plugin_auth_mongo[item].auth_mongo_acl_query }}
+{% endif %}
+{% if emq_plugin_auth_mongo[item].auth_mongo_acl_query_collection is defined %}
+auth.mongo.acl_query.collection={{ emq_plugin_auth_mongo[item].auth_mongo_acl_query_collection }}
+{% endif %}
+{% if emq_plugin_auth_mongo[item].auth_mongo_acl_query_selector is defined %}
+auth.mongo.acl_query.selector={{ emq_plugin_auth_mongo[item].auth_mongo_acl_query_selector }}
+{% endif %}
+#
+##--------------------------------------------------------------------
+## MySQL Auth/ACL Plugin
+##--------------------------------------------------------------------
+#
+{% if emq_plugin_auth_mysql[item].auth_mysql_server is defined %}
+auth.mysql.server={{ emq_plugin_auth_mysql[item].auth_mysql_server }}
+{% endif %}
+{% if emq_plugin_auth_mysql[item].auth_mysql_pool is defined %}
+auth.mysql.pool={{ emq_plugin_auth_mysql[item].auth_mysql_pool }}
+{% endif %}
+{% if emq_plugin_auth_mysql[item].auth_mysql_database is defined %}
+auth.mysql.database={{ emq_plugin_auth_mysql[item].auth_mysql_database }}
+{% endif %}
+{% if emq_plugin_auth_mysql[item].auth_mysql_auth_query is defined %}
+auth.mysql.auth_query={{ emq_plugin_auth_mysql[item].auth_mysql_auth_query }}
+{% endif %}
+{% if emq_plugin_auth_mysql[item].auth_mysql_password_hash is defined %}
+auth.mysql.password_hash={{ emq_plugin_auth_mysql[item].auth_mysql_password_hash }}
+{% endif %}
+{% if emq_plugin_auth_mysql[item].auth_mysql_super_query is defined %}
+auth.mysql.super_query={{ emq_plugin_auth_mysql[item].auth_mysql_super_query }}
+{% endif %}
+{% if emq_plugin_auth_mysql[item].auth_mysql_acl_query is defined %}
+auth.mysql.acl_query={{ emq_plugin_auth_mysql[item].auth_mysql_acl_query }}
+{% endif %}
+#
+##--------------------------------------------------------------------
+## PostgreSQL Auth/ACL Plugin
+##--------------------------------------------------------------------
+#
+{% if emq_plugin_auth_pgsql[item].auth_pgsql_server is defined %}
+auth.pgsql.server={{ emq_plugin_auth_pgsql[item].auth_pgsql_server }}
+{% endif %}
+{% if emq_plugin_auth_pgsql[item].auth_pgsql_pool is defined %}
+auth.pgsql.pool={{ emq_plugin_auth_pgsql[item].auth_pgsql_pool }}
+{% endif %}
+{% if emq_plugin_auth_pgsql[item].auth_pgsql_username is defined %}
+auth.pgsql.username={{ emq_plugin_auth_pgsql[item].auth_pgsql_username }}
+{% endif %}
+{% if emq_plugin_auth_pgsql[item].auth_pgsql_database is defined %}
+auth.pgsql.database={{ emq_plugin_auth_pgsql[item].auth_pgsql_database }}
+{% endif %}
+{% if emq_plugin_auth_pgsql[item].auth_pgsql_encoding is defined %}
+auth.pgsql.encoding={{ emq_plugin_auth_pgsql[item].auth_pgsql_encoding }}
+{% endif %}
+{% if emq_plugin_auth_pgsql[item].auth_pgsql_ssl is defined %}
+auth.pgsql.ssl={{ emq_plugin_auth_pgsql[item].auth_pgsql_ssl }}
+{% endif %}
+{% if emq_plugin_auth_pgsql[item].auth_pgsql_auth_query is defined %}
+auth.pgsql.auth_query={{ emq_plugin_auth_pgsql[item].auth_pgsql_auth_query }}
+{% endif %}
+{% if emq_plugin_auth_pgsql[item].auth_pgsql_password_hash is defined %}
+auth.pgsql.password_hash={{ emq_plugin_auth_pgsql[item].auth_pgsql_password_hash }}
+{% endif %}
+{% if emq_plugin_auth_pgsql[item].auth_pgsql_super_query is defined %}
+auth.pgsql.super_query={{ emq_plugin_auth_pgsql[item].auth_pgsql_super_query }}
+{% endif %}
+{% if emq_plugin_auth_pgsql[item].auth_pgsql_acl_query is defined %}
+auth.pgsql.acl_query={{ emq_plugin_auth_pgsql[item].auth_pgsql_acl_query }}
+{% endif %}
+#
+##--------------------------------------------------------------------
+## Redis Auth/ACL Plugin
+##--------------------------------------------------------------------
+#
+{% if emq_plugin_auth_redis[item].auth_redis_type is defined %}
+auth.redis.type={{ emq_plugin_auth_redis[item].auth_redis_type }}
+{% endif %}
+{% if emq_plugin_auth_redis[item].auth_redis_server is defined %}
+auth.redis.server={{ emq_plugin_auth_redis[item].auth_redis_server }}
+{% endif %}
+{% if emq_plugin_auth_redis[item].auth_redis_pool is defined %}
+auth.redis.pool={{ emq_plugin_auth_redis[item].auth_redis_pool }}
+{% endif %}
+{% if emq_plugin_auth_redis[item].auth_redis_database is defined %}
+auth.redis.database={{ emq_plugin_auth_redis[item].auth_redis_database }}
+{% endif %}
+{% if emq_plugin_auth_redis[item].auth_redis_auth_cmd is defined %}
+auth.redis.auth_cmd={{ emq_plugin_auth_redis[item].auth_redis_auth_cmd }}
+{% endif %}
+{% if emq_plugin_auth_redis[item].auth_redis_password_hash is defined %}
+auth.redis.password_hash={{ emq_plugin_auth_redis[item].auth_redis_password_hash }}
+{% endif %}
+{% if emq_plugin_auth_redis[item].auth_redis_super_cmd is defined %}
+auth.redis.super_cmd={{ emq_plugin_auth_redis[item].auth_redis_super_cmd }}
+{% endif %}
+{% if emq_plugin_auth_redis[item].auth_redis_acl_cmd is defined %}
+auth.redis.acl_cmd={{ emq_plugin_auth_redis[item].auth_redis_acl_cmd }}
+{% endif %}
+#
+##--------------------------------------------------------------------
+## Reloader Plugin
+##--------------------------------------------------------------------
+#
+{% if emq_config[item].reloader_interval is defined %}
+reloader.interval={{ emq_config[item].reloader_interval }}
+{% endif %}
+{% if emq_config[item].reloader_logfile is defined %}
+reloader.logfile={{ emq_config[item].reloader_logfile }}
+{% endif %}
+#
+##--------------------------------------------------------------------
+## EMQ X Retainer
+##--------------------------------------------------------------------
+#
+{% if emq_config[item].retainer_storage_type is defined %}
+retainer.storage_type={{ emq_config[item].retainer_storage_type }}
+{% endif %}
+{% if emq_config[item].retainer_max_retained_messages is defined %}
+retainer.max_retained_messages={{ emq_config[item].retainer_max_retained_messages }}
+{% endif %}
+{% if emq_config[item].retainer_max_payload_size is defined %}
+retainer.max_payload_size={{ emq_config[item].retainer_max_payload_size }}
+{% endif %}
+{% if emq_config[item].retainer_expiry_interval is defined %}
+retainer.expiry_interval={{ emq_config[item].retainer_expiry_interval }}
+{% endif %}
+#
+##====================================================================
+## Rule Engine for EMQ X R4.0
+##====================================================================
+#
+{% if emq_config[item].rule_engine_ignore_sys_message is defined %}
+rule_engine.ignore_sys_message={{ emq_config[item].rule_engine_ignore_sys_message }}
+{% endif %}
+{% if emq_config[item].rule_engine_events_client_connected is defined %}
+rule_engine.events.client_connected={{ emq_config[item].rule_engine_events_client_connected }}
+{% endif %}
+{% if emq_config[item].rule_engine_events_client_disconnected is defined %}
+rule_engine.events.client_disconnected={{ emq_config[item].rule_engine_events_client_disconnected }}
+{% endif %}
+{% if emq_config[item].rule_engine_events_session_subscribed is defined %}
+rule_engine.events.session_subscribed={{ emq_config[item].rule_engine_events_session_subscribed }}
+{% endif %}
+{% if emq_config[item].rule_engine_events_session_unsubscribed is defined %}
+rule_engine.events.session_unsubscribed={{ emq_config[item].rule_engine_events_session_unsubscribed }}
+{% endif %}
+{% if emq_config[item].rule_engine_events_message_delivered is defined %}
+rule_engine.events.message_delivered={{ emq_config[item].rule_engine_events_message_delivered }}
+{% endif %}
+{% if emq_config[item].rule_engine_events_message_acked is defined %}
+rule_engine.events.message_acked={{ emq_config[item].rule_engine_events_message_acked }}
+{% endif %}
+{% if emq_config[item].rule_engine_events_message_dropped is defined %}
+rule_engine.events.message_dropped={{ emq_config[item].rule_engine_events_message_dropped }}
+{% endif %}
+#
+##--------------------------------------------------------------------
+## Statsd for EMQ X
+##--------------------------------------------------------------------
+#
+{% if emq_config[item].statsd_push_gateway_server is defined %}
+statsd.push.gateway.server={{ emq_config[item].statsd_push_gateway_server }}
+{% endif %}
+{% if emq_config[item].statsd_interval is defined %}
+statsd.interval={{ emq_config[item].statsd_interval }}
+{% endif %}
+#
+##====================================================================
+## Configuration for EMQ X MQTT Broker Bridge
+##====================================================================
+#
+###--------------------------------------------------------------------
+### Bridges to aws
+###--------------------------------------------------------------------
+#
+{% if emq_plugin_bridge_mqtt[item].bridge_mqtt_aws_address is defined %}
+bridge.mqtt.aws.address={{ emq_plugin_bridge_mqtt[item].bridge_mqtt_aws_address }}
+{% endif %}
+{% if emq_plugin_bridge_mqtt[item].bridge_mqtt_aws_proto_ver is defined %}
+bridge.mqtt.aws.proto_ver={{ emq_plugin_bridge_mqtt[item].bridge_mqtt_aws_proto_ver }}
+{% endif %}
+{% if emq_plugin_bridge_mqtt[item].bridge_mqtt_aws_start_type is defined %}
+bridge.mqtt.aws.start_type={{ emq_plugin_bridge_mqtt[item].bridge_mqtt_aws_start_type }}
+{% endif %}
+{% if emq_plugin_bridge_mqtt[item].bridge_mqtt_aws_bridge_mode is defined %}
+bridge.mqtt.aws.bridge_mode={{ emq_plugin_bridge_mqtt[item].bridge_mqtt_aws_bridge_mode }}
+{% endif %}
+{% if emq_plugin_bridge_mqtt[item].bridge_mqtt_aws_clientid is defined %}
+bridge.mqtt.aws.clientid={{ emq_plugin_bridge_mqtt[item].bridge_mqtt_aws_clientid }}
+{% endif %}
+{% if emq_plugin_bridge_mqtt[item].bridge_mqtt_aws_clean_start is defined %}
+bridge.mqtt.aws.clean_start={{ emq_plugin_bridge_mqtt[item].bridge_mqtt_aws_clean_start }}
+{% endif %}
+{% if emq_plugin_bridge_mqtt[item].bridge_mqtt_aws_username is defined %}
+bridge.mqtt.aws.username={{ emq_plugin_bridge_mqtt[item].bridge_mqtt_aws_username }}
+{% endif %}
+{% if emq_plugin_bridge_mqtt[item].bridge_mqtt_aws_password is defined %}
+bridge.mqtt.aws.password={{ emq_plugin_bridge_mqtt[item].bridge_mqtt_aws_password }}
+{% endif %}
+{% if emq_plugin_bridge_mqtt[item].bridge_mqtt_aws_forwards is defined %}
+bridge.mqtt.aws.forwards={{ emq_plugin_bridge_mqtt[item].bridge_mqtt_aws_forwards }}
+{% endif %}
+{% if emq_plugin_bridge_mqtt[item].bridge_mqtt_aws_forward_mountpoint is defined %}
+bridge.mqtt.aws.forward_mountpoint={{ emq_plugin_bridge_mqtt[item].bridge_mqtt_aws_forward_mountpoint }}
+{% endif %}
+{% if emq_plugin_bridge_mqtt[item].bridge_mqtt_aws_ssl is defined %}
+bridge.mqtt.aws.ssl={{ emq_plugin_bridge_mqtt[item].bridge_mqtt_aws_ssl }}
+{% endif %}
+{% if emq_plugin_bridge_mqtt[item].bridge_mqtt_aws_cacertfile is defined %}
+bridge.mqtt.aws.cacertfile={{ emq_plugin_bridge_mqtt[item].bridge_mqtt_aws_cacertfile }}
+{% endif %}
+{% if emq_plugin_bridge_mqtt[item].bridge_mqtt_aws_certfile is defined %}
+bridge.mqtt.aws.certfile={{ emq_plugin_bridge_mqtt[item].bridge_mqtt_aws_certfile }}
+{% endif %}
+{% if emq_plugin_bridge_mqtt[item].bridge_mqtt_aws_keyfile is defined %}
+bridge.mqtt.aws.keyfile={{ emq_plugin_bridge_mqtt[item].bridge_mqtt_aws_keyfile }}
+{% endif %}
+{% if emq_plugin_bridge_mqtt[item].bridge_mqtt_aws_ciphers is defined %}
+bridge.mqtt.aws.ciphers={{ emq_plugin_bridge_mqtt[item].bridge_mqtt_aws_ciphers }}
+{% endif %}
+{% if emq_plugin_bridge_mqtt[item].bridge_mqtt_aws_psk_ciphers is defined %}
+bridge.mqtt.aws.psk_ciphers={{ emq_plugin_bridge_mqtt[item].bridge_mqtt_aws_psk_ciphers }}
+{% endif %}
+{% if emq_plugin_bridge_mqtt[item].bridge_mqtt_aws_keepalive is defined %}
+bridge.mqtt.aws.keepalive={{ emq_plugin_bridge_mqtt[item].bridge_mqtt_aws_keepalive }}
+{% endif %}
+{% if emq_plugin_bridge_mqtt[item].bridge_mqtt_aws_tls_versions is defined %}
+bridge.mqtt.aws.tls_versions={{ emq_plugin_bridge_mqtt[item].bridge_mqtt_aws_tls_versions }}
+{% endif %}
+{% if emq_plugin_bridge_mqtt[item].bridge_mqtt_aws_reconnect_interval is defined %}
+bridge.mqtt.aws.reconnect_interval={{ emq_plugin_bridge_mqtt[item].bridge_mqtt_aws_reconnect_interval }}
+{% endif %}
+{% if emq_plugin_bridge_mqtt[item].bridge_mqtt_aws_retry_interval is defined %}
+bridge.mqtt.aws.retry_interval={{ emq_plugin_bridge_mqtt[item].bridge_mqtt_aws_retry_interval }}
+{% endif %}
+{% if emq_plugin_bridge_mqtt[item].bridge_mqtt_aws_batch_size is defined %}
+bridge.mqtt.aws.batch_size={{ emq_plugin_bridge_mqtt[item].bridge_mqtt_aws_batch_size }}
+{% endif %}
+{% if emq_plugin_bridge_mqtt[item].bridge_mqtt_aws_max_inflight_size is defined %}
+bridge.mqtt.aws.max_inflight_size={{ emq_plugin_bridge_mqtt[item].bridge_mqtt_aws_max_inflight_size }}
+{% endif %}
+{% if emq_plugin_bridge_mqtt[item].bridge_mqtt_aws_queue_replayq_dir is defined %}
+bridge.mqtt.aws.queue.replayq_dir={{ emq_plugin_bridge_mqtt[item].bridge_mqtt_aws_queue_replayq_dir }}
+{% endif %}
+{% if emq_plugin_bridge_mqtt[item].bridge_mqtt_aws_queue_replayq_seg_bytes is defined %}
+bridge.mqtt.aws.queue.replayq_seg_bytes={{ emq_plugin_bridge_mqtt[item].bridge_mqtt_aws_queue_replayq_seg_bytes }}
+{% endif %}
+{% if emq_plugin_bridge_mqtt[item].bridge_mqtt_aws_queue_max_total_size is defined %}
+bridge.mqtt.aws.queue.max_total_size={{ emq_plugin_bridge_mqtt[item].bridge_mqtt_aws_queue_max_total_size }}
+{% endif %}
+#
+##--------------------------------------------------------------------
+## CoAP Gateway
+##--------------------------------------------------------------------
+#
+{% if emq_plugin_coap[item].coap_port is defined %}
+coap.port={{ emq_plugin_coap[item].coap_port }}
+{% endif %}
+{% if emq_plugin_coap[item].coap_enable_stats is defined %}
+coap.enable_stats={{ emq_plugin_coap[item].coap_enable_stats }}
+{% endif %}
+{% if emq_plugin_coap[item].coap_dtls_port is defined %}
+coap.dtls.port={{ emq_plugin_coap[item].coap_dtls_port }}
+{% endif %}
+{% if emq_plugin_coap[item].coap_dtls_keyfile is defined %}
+coap.dtls.keyfile={{ emq_plugin_coap[item].coap_dtls_keyfile }}
+{% endif %}
+{% if emq_plugin_coap[item].coap_dtls_certfile is defined %}
+coap.dtls.certfile={{ emq_plugin_coap[item].coap_dtls_certfile }}
+{% endif %}
+{% if emq_plugin_coap[item].coap_dtls_ciphers is defined %}
+coap.dtls.ciphers={{ emq_plugin_coap[item].coap_dtls_ciphers }}
+{% endif %}
+#
+##--------------------------------------------------------------------
+## Recon Plugin
+##--------------------------------------------------------------------
+#
+{% if emq_plugin_recon[item].recon_gc_interval is defined %}
+recon.gc_interval={{ emq_plugin_recon[item].recon_gc_interval }}
+{% endif %}
+#
+##--------------------------------------------------------------------
+## EMQ X Delayed Publish Plugin
+##--------------------------------------------------------------------
+#
+{% if emq_plugin_delayed_publish[item].lwm2m_port is defined %}
+lwm2m.port={{ emq_plugin_delayed_publish[item].lwm2m_port }}
+{% endif %}
+{% if emq_plugin_delayed_publish[item].lwm2m_lifetime_min is defined %}
+lwm2m.lifetime_min={{ emq_plugin_delayed_publish[item].lwm2m_lifetime_min }}
+{% endif %}
+{% if emq_plugin_delayed_publish[item].lwm2m_lifetime_max is defined %}
+lwm2m.lifetime_max={{ emq_plugin_delayed_publish[item].lwm2m_lifetime_max }}
+{% endif %}
+{% if emq_plugin_delayed_publish[item].lwm2m_mountpoint is defined %}
+lwm2m.mountpoint={{ emq_plugin_delayed_publish[item].lwm2m_mountpoint }}
+{% endif %}
+{% if emq_plugin_delayed_publish[item].lwm2m_topics_command is defined %}
+lwm2m.topics.command={{ emq_plugin_delayed_publish[item].lwm2m_topics_command }}
+{% endif %}
+{% if emq_plugin_delayed_publish[item].lwm2m_topics_response is defined %}
+lwm2m.topics.response={{ emq_plugin_delayed_publish[item].lwm2m_topics_response }}
+{% endif %}
+{% if emq_plugin_delayed_publish[item].lwm2m_topics_notify is defined %}
+lwm2m.topics.notify={{ emq_plugin_delayed_publish[item].lwm2m_topics_notify }}
+{% endif %}
+{% if emq_plugin_delayed_publish[item].lwm2m_topics_register is defined %}
+lwm2m.topics.register={{ emq_plugin_delayed_publish[item].lwm2m_topics_register }}
+{% endif %}
+{% if emq_plugin_delayed_publish[item].lwm2m_topics_update is defined %}
+lwm2m.topics.update={{ emq_plugin_delayed_publish[item].lwm2m_topics_update }}
+{% endif %}
+{% if emq_plugin_delayed_publish[item].lwm2m_opts_buffer is defined %}
+lwm2m.opts.buffer={{ emq_plugin_delayed_publish[item].lwm2m_opts_buffer }}
+{% endif %}
+{% if emq_plugin_delayed_publish[item].lwm2m_opts_recbuf is defined %}
+lwm2m.opts.recbuf={{ emq_plugin_delayed_publish[item].lwm2m_opts_recbuf }}
+{% endif %}
+{% if emq_plugin_delayed_publish[item].lwm2m_opts_sndbuf is defined %}
+lwm2m.opts.sndbuf={{ emq_plugin_delayed_publish[item].lwm2m_opts_sndbuf }}
+{% endif %}
+{% if emq_plugin_delayed_publish[item].lwm2m_opts_read_packets is defined %}
+lwm2m.opts.read_packets={{ emq_plugin_delayed_publish[item].lwm2m_opts_read_packets }}
+{% endif %}
+{% if emq_plugin_delayed_publish[item].lwm2m_certfile is defined %}
+lwm2m.certfile={{ emq_plugin_delayed_publish[item].lwm2m_certfile }}
+{% endif %}
+{% if emq_plugin_delayed_publish[item].lwm2m_keyfile is defined %}
+lwm2m.keyfile={{ emq_plugin_delayed_publish[item].lwm2m_keyfile }}
+{% endif %}
+{% if emq_plugin_delayed_publish[item].lwm2m_xml_dir is defined %}
+lwm2m.xml_dir={{ emq_plugin_delayed_publish[item].lwm2m_xml_dir }}
+{% endif %}
+#
+##--------------------------------------------------------------------
+## MQTT-SN
+##--------------------------------------------------------------------
+#
+{% if emq_plugin_sn[item].mqtt_sn_port is defined %}
+mqtt.sn.port={{ emq_plugin_sn[item].mqtt_sn_port }}
+{% endif %}
+{% if emq_plugin_sn[item].mqtt_sn_advertise_duration is defined %}
+mqtt.sn.advertise_duration={{ emq_plugin_sn[item].mqtt_sn_advertise_duration }}
+{% endif %}
+{% if emq_plugin_sn[item].mqtt_sn_gateway_id is defined %}
+mqtt.sn.gateway_id={{ emq_plugin_sn[item].mqtt_sn_gateway_id }}
+{% endif %}
+{% if emq_plugin_sn[item].mqtt_sn_enable_stats is defined %}
+mqtt.sn.enable_stats={{ emq_plugin_sn[item].mqtt_sn_enable_stats }}
+{% endif %}
+{% if emq_plugin_sn[item].mqtt_sn_enable_qos3 is defined %}
+mqtt.sn.enable_qos3={{ emq_plugin_sn[item].mqtt_sn_enable_qos3 }}
+{% endif %}
+{% if emq_plugin_sn[item].mqtt_sn_idle_timeout is defined %}
+mqtt.sn.idle_timeout={{ emq_plugin_sn[item].mqtt_sn_idle_timeout }}
+{% endif %}
+{% if emq_plugin_sn[item].mqtt_sn_predefined_topic_0 is defined %}
+mqtt.sn.predefined.topic.0={{ emq_plugin_sn[item].mqtt_sn_predefined_topic_0 }}
+{% endif %}
+{% if emq_plugin_sn[item].mqtt_sn_predefined_topic_1 is defined %}
+mqtt.sn.predefined.topic.1={{ emq_plugin_sn[item].mqtt_sn_predefined_topic_1 }}
+{% endif %}
+{% if emq_plugin_sn[item].mqtt_sn_predefined_topic_2 is defined %}
+mqtt.sn.predefined.topic.2={{ emq_plugin_sn[item].mqtt_sn_predefined_topic_2 }}
+{% endif %}
+{% if emq_plugin_sn[item].mqtt_sn_username is defined %}
+mqtt.sn.username={{ emq_plugin_sn[item].mqtt_sn_username }}
+{% endif %}
+{% if emq_plugin_sn[item].mqtt_sn_password is defined %}
+mqtt.sn.password={{ emq_plugin_sn[item].mqtt_sn_password }}
+{% endif %}
+#
+##--------------------------------------------------------------------
+## Stomp Plugin
+##--------------------------------------------------------------------
+#
+{% if emq_plugin_stomp[item].stomp_listener is defined %}
+stomp.listener={{ emq_plugin_stomp[item].stomp_listener }}
+{% endif %}
+{% if emq_plugin_stomp[item].stomp_listener_acceptors is defined %}
+stomp.listener.acceptors={{ emq_plugin_stomp[item].stomp_listener_acceptors }}
+{% endif %}
+{% if emq_plugin_stomp[item].stomp_listener_max_clients is defined %}
+stomp.listener.max_clients={{ emq_plugin_stomp[item].stomp_listener_max_clients }}
+{% endif %}
+{% if emq_plugin_stomp[item].stomp_default_user_login is defined %}
+stomp.default_user.login={{ emq_plugin_stomp[item].stomp_default_user_login }}
+{% endif %}
+{% if emq_plugin_stomp[item].stomp_default_user_passcode is defined %}
+stomp.default_user.passcode={{ emq_plugin_stomp[item].stomp_default_user_passcode }}
+{% endif %}
+{% if emq_plugin_stomp[item].stomp_allow_anonymous is defined %}
+stomp.allow_anonymous={{ emq_plugin_stomp[item].stomp_allow_anonymous }}
+{% endif %}
+{% if emq_plugin_stomp[item].stomp_frame_max_headers is defined %}
+stomp.frame.max_headers={{ emq_plugin_stomp[item].stomp_frame_max_headers }}
+{% endif %}
+{% if emq_plugin_stomp[item].stomp_frame_max_header_length is defined %}
+stomp.frame.max_header_length={{ emq_plugin_stomp[item].stomp_frame_max_header_length }}
+{% endif %}
+{% if emq_plugin_stomp[item].stomp_frame_max_body_length is defined %}
+stomp.frame.max_body_length={{ emq_plugin_stomp[item].stomp_frame_max_body_length }}
+{% endif %}
+#
+##--------------------------------------------------------------------
+## EMQ X WebHook
+##--------------------------------------------------------------------
+#
+{% if emq_plugin_web_hook[item].web_hook_api_url is defined %}
+web.hook.api.url={{ emq_plugin_web_hook[item].web_hook_api_url }}
+{% endif %}
+{% if emq_plugin_web_hook[item].web_hook_rule_client_connect_1 is defined %}
+web.hook.rule.client.connect.1={{ emq_plugin_web_hook[item].web_hook_rule_client_connect_1 }}
+{% endif %}
+{% if emq_plugin_web_hook[item].web_hook_rule_client_connack_1 is defined %}
+web.hook.rule.client.connack.1={{ emq_plugin_web_hook[item].web_hook_rule_client_connack_1 }}
+{% endif %}
+{% if emq_plugin_web_hook[item].web_hook_rule_client_connected_1 is defined %}
+web.hook.rule.client.connected.1={{ emq_plugin_web_hook[item].web_hook_rule_client_connected_1 }}
+{% endif %}
+{% if emq_plugin_web_hook[item].web_hook_rule_client_disconnected_1 is defined %}
+web.hook.rule.client.disconnected.1={{ emq_plugin_web_hook[item].web_hook_rule_client_disconnected_1 }}
+{% endif %}
+{% if emq_plugin_web_hook[item].web_hook_rule_client_subscribe_1 is defined %}
+web.hook.rule.client.subscribe.1={{ emq_plugin_web_hook[item].web_hook_rule_client_subscribe_1 }}
+{% endif %}
+{% if emq_plugin_web_hook[item].web_hook_rule_client_unsubscribe_1 is defined %}
+web.hook.rule.client.unsubscribe.1={{ emq_plugin_web_hook[item].web_hook_rule_client_unsubscribe_1 }}
+{% endif %}
+{% if emq_plugin_web_hook[item].web_hook_rule_session_subscribed_1 is defined %}
+web.hook.rule.session.subscribed.1={{ emq_plugin_web_hook[item].web_hook_rule_session_subscribed_1 }}
+{% endif %}
+{% if emq_plugin_web_hook[item].web_hook_rule_session_unsubscribed_1 is defined %}
+web.hook.rule.session.unsubscribed.1={{ emq_plugin_web_hook[item].web_hook_rule_session_unsubscribed_1 }}
+{% endif %}
+{% if emq_plugin_web_hook[item].web_hook_rule_session_terminated_1 is defined %}
+web.hook.rule.session.terminated.1={{ emq_plugin_web_hook[item].web_hook_rule_session_terminated_1 }}
+{% endif %}
+{% if emq_plugin_web_hook[item].web_hook_rule_message_publish_1 is defined %}
+web.hook.rule.message.publish.1={{ emq_plugin_web_hook[item].web_hook_rule_message_publish_1 }}
+{% endif %}
+{% if emq_plugin_web_hook[item].web_hook_rule_message_delivered_1 is defined %}
+web.hook.rule.message.delivered.1={{ emq_plugin_web_hook[item].web_hook_rule_message_delivered_1 }}
+{% endif %}
+{% if emq_plugin_web_hook[item].web_hook_rule_message_acked_1 is defined %}
+web.hook.rule.message.acked.1={{ emq_plugin_web_hook[item].web_hook_rule_message_acked_1 }}
+{% endif %}
