@@ -23,8 +23,6 @@
     - role: emq
       tags: ['emq']
 
-
-
 - hosts: monitoring
   become: yes
   user: vagrant
@@ -32,9 +30,6 @@
         - { role: cloudalchemy.ansible-pushgateway, tags: ['pushgateway'] }
         - { role: cloudalchemy.prometheus, tags: ['prometheus'] }
         - { role: cloudalchemy.grafana , tags: ['grafana'] }
-
   tasks:
         - apt: name={{ item }}
           with_items: [vim, jq]
-
-

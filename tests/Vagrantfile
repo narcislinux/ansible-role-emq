@@ -26,7 +26,6 @@ Vagrant.configure("2") do |config|
 
   end
 
-
 #  config.vm.provision "shell", inline: "apt install --yes git python3-pip"
 config.vm.provision "ansible" do |ansible|
       ansible.become = true
@@ -38,4 +37,3 @@ config.vm.provision "ansible" do |ansible|
       ansible.galaxy_roles_path = ANSIBLE_ROLES_PATH 
 end
 end
-

@@ -8,14 +8,12 @@
 #   http_proxy: ""
 #   https_proxy: ""
 
-
 # #  Emq has 3 type broker, emqx-ee broker (package="emqx-ee"), emqx-edge broker (package="emqx-edge") and emqx-ce broker (package="emqx").
 # emq_repo:
 #   emqx:
 #     url: "deb [arch=amd64] https://repos.emqx.io/emqx-ce/deb/ubuntu/  bionic stable "
 #     state: present
 #     filename: emqx
-
 
 # emq_package:
 #   dependency:
@@ -29,11 +27,9 @@
 #     purge: no
 #     update_cache: yes
 
-
 # emq_monitoring:
 #   prometheus_push_gateway_server:  http://10_0_0_11:9091
 #   prometheus_interval:  15000
-
 
 # # EMQX config variables
 # emq_config:
@@ -378,7 +374,6 @@
 #   statsd_push_gateway_server:  http://127_0_0_1:9091
 #   statsd_interval:  15000
 
-
 # emq_plugin_dashboard:
 #   dashboard_default_user_login:  admin
 #   dashboard_default_user_password:  public
@@ -403,7 +398,6 @@
 #   dashboard_listener_https_secure_renegotiate:  off
 #   dashboard_listener_https_reuse_sessions:  on
 #   dashboard_listener_https_honor_cipher_order:  on
-
 
 # emq_plugin_management:
 #   management_max_row_limit:  10000
@@ -432,7 +426,6 @@
 #   management_listener_https_fail_if_no_peer_cert:  true
 #   management_listener_https_inet6:  false
 #   management_listener_https_ipv6_v6only:  false
-
 
 # emq_plugin_auth_clientid:
 #   auth_client_password_hash: 'sha256'
@@ -497,7 +490,6 @@
 #   auth_mongo_acl_query_collection:  mqtt_acl
 #   auth_mongo_acl_query_selector:  username= %u
 
-
 # emq_plugin_auth_mysql:
 #   auth_mysql_server:  127_0_0_1:3306
 #   auth_mysql_pool:  8
@@ -529,8 +521,6 @@
 #   auth_redis_super_cmd:  HGET mqtt_user:%u is_superuser
 #   auth_redis_acl_cmd:  HGETALL mqtt_acl:%u
 
-
-
 # emq_plugin_bridge_mqtt:
 #   bridge_mqtt_aws_address:  127_0_0_1:1883
 #   bridge_mqtt_aws_proto_ver:  mqttv4
@@ -557,7 +547,6 @@
 #   bridge_mqtt_aws_queue_replayq_dir:  data/emqx_aws_bridge/
 #   bridge_mqtt_aws_queue_replayq_seg_bytes:  10MB
 #   bridge_mqtt_aws_queue_max_total_size:  5GB
-
 
 # emq_plugin_coap:
 #   coap_port:  5683
@@ -588,8 +577,6 @@
 #   lwm2m_keyfile:  etc/certs/key_pem
 #   lwm2m_xml_dir:  etc/lwm2m_xml
 
-
-
 # emq_plugin_sn:
 #   mqtt_sn_port:  1884
 #   mqtt_sn_advertise_duration:  15s
@@ -614,7 +601,6 @@
 #   stomp_frame_max_header_length:  1024
 #   stomp_frame_max_body_length:  8192
 
-
 # emq_plugin_web_hook:
 #   web_hook_api_url:  http://127_0_0_1:8080
 #   web_hook_rule_client_connect_1:  {"action": "on_client_connect"}
@@ -629,5 +615,3 @@
 #   web_hook_rule_message_publish_1:  {"action": "on_message_publish"}
 #   web_hook_rule_message_delivered_1:  {"action": "on_message_delivered"}
 #   web_hook_rule_message_acked_1:  {"action": "on_message_acked"}
-
-

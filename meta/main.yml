@@ -3,11 +3,11 @@ dependencies: []
 
 galaxy_info:
   author: narges.ahmadi
-  description: Emq for Linux
+  description: Emq ansible role for Ubuntu.
   license: "MIT"
   min_ansible_version: 1.1
   platforms:
-    - name: ubuntu
+    - name: Ubuntu
       versions:
       - 18.04
   galaxy_tags:
