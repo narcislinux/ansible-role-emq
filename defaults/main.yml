@@ -31,14 +31,18 @@
 #   prometheus_push_gateway_server: http://10_0_0_11:9091
 #   prometheus_interval: 15000
 
+# emq_cluster_nodes:
+#   - 127.0.0.1
+
 # # EMQX config variables
 # emq_config:
+#  emqx:
 #   cluster_name: emqxcl
 #   cluster_proto_dist: inet_tcp
 #   cluster_discovery: manual
 #   cluster_autoheal: on
 #   cluster_autoclean: 5m
-#   cluster_static_seeds: emqx1@127.0.0.1,emqx2@127.0.0.1
+#   cluster_static_seeds: emqx@{{ emq_cluster_nodes[0] }}
 #   cluster_mcast_addr: 239.192.0.1
 #   cluster_mcast_ports: 4369,4370
 #   cluster_mcast_iface: 0.0.0.0
@@ -374,7 +378,18 @@
 #   statsd_push_gateway_server: http://127_0_0_1:9091
 #   statsd_interval: 15000
 
+# emq_plugin_default_loaded: 
+# - emqx_management
+# - emqx_recon
+# - emqx_retainer
+# - emqx_dashboard
+# - emqx_telemetry
+# - emqx_rule_engine
+# - emqx_prometheus
+# - emqx_auth_http
+
 # emq_plugin_dashboard:
+#  emqx:
 #   dashboard_default_user_login: admin
 #   dashboard_default_user_password: public
 #   dashboard_listener_http: 18083
@@ -400,6 +415,7 @@
 #   dashboard_listener_https_honor_cipher_order: on
 
 # emq_plugin_management:
+#  emqx:
 #   management_max_row_limit: 10000
 #   management_default_application_id: admin
 #   management_default_application_secret: public
@@ -428,9 +444,11 @@
 #   management_listener_https_ipv6_v6only: false
 
 # emq_plugin_auth_clientid:
+#  emqx:
 #   auth_client_password_hash: 'sha256'
 
 # emq_plugin_auth_http:
+#  emqx:
 #   auth_http_auth_req: http://127.0.0.1:9999/auth
 #   auth_http_auth_req_method: post
 #   auth_http_auth_req_content_type: x-www-form-urlencoded
@@ -454,11 +472,13 @@
 #   auth_http_header_Accept: */*
 
 # emq_plugin_auth_jwt:
+#  emqx:
 #   auth_jwt_secret: emqxsecret
 #   auth_jwt_from: password
 #   auth_jwt_verify_claims: off
 
 # emq_plugin_auth_ldap: 
+#  emqx:
 #   auth_ldap_servers: 127_0_0_1
 #   auth_ldap_port: 389
 #   auth_ldap_pool: 8
@@ -472,6 +492,7 @@
 #   auth_ldap_ssl: false
 
 # emq_plugin_auth_mongo:
+#  emqx:
 #   auth_mongo_type: single
 #   auth_mongo_server: 127_0_0_1:27017
 #   auth_mongo_pool: 8
@@ -491,6 +512,7 @@
 #   auth_mongo_acl_query_selector: username= %u
 
 # emq_plugin_auth_mysql:
+#  emqx:
 #   auth_mysql_server: 127_0_0_1:3306
 #   auth_mysql_pool: 8
 #   auth_mysql_database: mqtt
@@ -500,6 +522,7 @@
 #   auth_mysql_acl_query: select allow, ipaddr, username, clientid, access, topic from mqtt_acl where ipaddr = '%a' or username = '%u' or username = '$all' or clientid = '%c'
 
 # emq_plugin_auth_pgsql:
+#  emqx:
 #   auth_pgsql_server: 127_0_0_1:5432
 #   auth_pgsql_pool: 8
 #   auth_pgsql_username: root
@@ -512,6 +535,7 @@
 #   auth_pgsql_acl_query: select allow, ipaddr, username, clientid, access, topic from mqtt_acl where ipaddr = '%a' or username = '%u' or username = '$all' or clientid = '%c'
 
 # emq_plugin_auth_redis:
+#  emqx:
 #   auth_redis_type: single
 #   auth_redis_server: 127_0_0_1:6379
 #   auth_redis_pool: 8
@@ -522,6 +546,7 @@
 #   auth_redis_acl_cmd: HGETALL mqtt_acl:%u
 
 # emq_plugin_bridge_mqtt:
+#  emqx:
 #   bridge_mqtt_aws_address: 127_0_0_1:1883
 #   bridge_mqtt_aws_proto_ver: mqttv4
 #   bridge_mqtt_aws_start_type: manual
@@ -549,6 +574,7 @@
 #   bridge_mqtt_aws_queue_max_total_size: 5GB
 
 # emq_plugin_coap:
+#  emqx:
 #   coap_port: 5683
 #   coap_enable_stats: off
 #   coap_dtls_port: 5684
@@ -557,9 +583,11 @@
 #   coap_dtls_ciphers: ECDHE-ECDSA-AES256-GCM-SHA384,ECDHE-RSA-AES256-GCM-SHA384,ECDHE-ECDSA-AES256-SHA384,ECDHE-RSA-AES256-SHA384,ECDHE-ECDSA-DES-CBC3-SHA,ECDH-ECDSA-AES256-GCM-SHA384,ECDH-RSA-AES256-GCM-SHA384,ECDH-ECDSA-AES256-SHA384,ECDH-RSA-AES256-SHA384,DHE-DSS-AES256-GCM-SHA384,DHE-DSS-AES256-SHA256,AES256-GCM-SHA384,AES256-SHA256,ECDHE-ECDSA-AES128-GCM-SHA256,ECDHE-RSA-AES128-GCM-SHA256,ECDHE-ECDSA-AES128-SHA256,ECDHE-RSA-AES128-SHA256,ECDH-ECDSA-AES128-GCM-SHA256,ECDH-RSA-AES128-GCM-SHA256,ECDH-ECDSA-AES128-SHA256,ECDH-RSA-AES128-SHA256,DHE-DSS-AES128-GCM-SHA256,DHE-DSS-AES128-SHA256,AES128-GCM-SHA256,AES128-SHA256,ECDHE-ECDSA-AES256-SHA,ECDHE-RSA-AES256-SHA,DHE-DSS-AES256-SHA,ECDH-ECDSA-AES256-SHA,ECDH-RSA-AES256-SHA,AES256-SHA,ECDHE-ECDSA-AES128-SHA,ECDHE-RSA-AES128-SHA,DHE-DSS-AES128-SHA,ECDH-ECDSA-AES128-SHA,ECDH-RSA-AES128-SHA,AES128-SHA
 
 # emq_plugin_recon:
+#  emqx:
 #   recon_gc_interval: 5m
 
 # emq_plugin_delayed_publish:
+#  emqx:
 #   lwm2m_port: 5683
 #   lwm2m_lifetime_min: 1s
 #   lwm2m_lifetime_max: 86400s
@@ -578,6 +606,7 @@
 #   lwm2m_xml_dir: etc/lwm2m_xml
 
 # emq_plugin_sn:
+#  emqx:
 #   mqtt_sn_port: 1884
 #   mqtt_sn_advertise_duration: 15s
 #   mqtt_sn_gateway_id: 1
@@ -591,6 +620,7 @@
 #   mqtt_sn_password: abc
 
 # emq_plugin_stomp:
+#  emqx:
 #   stomp_listener: 61613
 #   stomp_listener_acceptors: 4
 #   stomp_listener_max_clients: 512
@@ -602,6 +632,7 @@
 #   stomp_frame_max_body_length: 8192
 
 # emq_plugin_web_hook:
+#  emqx:
 #   web_hook_api_url: http://127_0_0_1:8080
 #   web_hook_rule_client_connect_1: {"action": "on_client_connect"}
 #   web_hook_rule_client_connack_1: {"action": "on_client_connack"}
