@@ -1,0 +1,30 @@
+# {{ ansible_managed }}
+
+##--------------------------------------------------------------------
+## Redis Auth/ACL Plugin
+##--------------------------------------------------------------------
+#
+{% if emq_plugin_auth_redis[item].auth_redis_type is defined %}
+auth.redis.type={{ emq_plugin_auth_redis[item].auth_redis_type }}
+{% endif %}
+{% if emq_plugin_auth_redis[item].auth_redis_server is defined %}
+auth.redis.server={{ emq_plugin_auth_redis[item].auth_redis_server }}
+{% endif %}
+{% if emq_plugin_auth_redis[item].auth_redis_pool is defined %}
+auth.redis.pool={{ emq_plugin_auth_redis[item].auth_redis_pool }}
+{% endif %}
+{% if emq_plugin_auth_redis[item].auth_redis_database is defined %}
+auth.redis.database={{ emq_plugin_auth_redis[item].auth_redis_database }}
+{% endif %}
+{% if emq_plugin_auth_redis[item].auth_redis_auth_cmd is defined %}
+auth.redis.auth_cmd={{ emq_plugin_auth_redis[item].auth_redis_auth_cmd }}
+{% endif %}
+{% if emq_plugin_auth_redis[item].auth_redis_password_hash is defined %}
+auth.redis.password_hash={{ emq_plugin_auth_redis[item].auth_redis_password_hash }}
+{% endif %}
+{% if emq_plugin_auth_redis[item].auth_redis_super_cmd is defined %}
+auth.redis.super_cmd={{ emq_plugin_auth_redis[item].auth_redis_super_cmd }}
+{% endif %}
+{% if emq_plugin_auth_redis[item].auth_redis_acl_cmd is defined %}
+auth.redis.acl_cmd={{ emq_plugin_auth_redis[item].auth_redis_acl_cmd }}
+{% endif %}
