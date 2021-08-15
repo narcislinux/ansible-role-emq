@@ -588,6 +588,10 @@
 
 # emq_plugin_delayed_publish:
 #  emqx:
+#   recon_gc_interval: 5m
+
+# emq_plugin_delayed_publish:
+#  emqx:
 #   lwm2m_port: 5683
 #   lwm2m_lifetime_min: 1s
 #   lwm2m_lifetime_max: 86400s
@@ -646,3 +650,4 @@
 #   web_hook_rule_message_publish_1: {"action": "on_message_publish"}
 #   web_hook_rule_message_delivered_1: {"action": "on_message_delivered"}
 #   web_hook_rule_message_acked_1: {"action": "on_message_acked"}
+
