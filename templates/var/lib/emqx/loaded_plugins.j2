@@ -1,0 +1,5 @@
+{% if emq_plugin_default_loaded is defined %}
+{% for emq_plugin_line in emq_plugin_default_loaded %}
+{{ emq_plugin_line }}.
+{% endfor %}
+{% endif -%}

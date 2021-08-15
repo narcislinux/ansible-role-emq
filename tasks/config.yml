@@ -34,6 +34,18 @@
   tags:
     - config-plugin-auth-http
 
+- name: EMQX | Plugin | Redis Auth Plugin
+  template:
+    src: "etc/emqx/plugins/emqx_auth_redis.conf.j2"
+    dest: "/etc/emqx/plugins/emqx_auth_redis.conf"
+    mode: 0644
+  with_items: "{{ emq_plugin_auth_redis | list }}"
+  when: emq_plugin_auth_redis is defined
+  notify:
+    - restart service
+  tags:
+    - emq_plugin_auth_redis
+
 - name: EMQX | Plugin | EMQ X Dashboard
   template:
     src: "etc/emqx/plugins/emqx_dashboard-conf.j2"
@@ -69,3 +81,14 @@
     - restart service
   tags:
     - config-plugin-prometheus
+
+- name: EMQX | Plugin | Loaded default plugins
+  template:
+    src: "var/lib/emqx/loaded_plugins.j2"
+    dest: "/var/lib/emqx/loaded_plugins"
+    mode: 0644
+  when: emq_plugin_default_loaded is defined
+  notify:
+    - restart service
+  tags:
+    - config-plugin-default-loaded
